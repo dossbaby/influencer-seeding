@@ -255,6 +255,53 @@
             border-radius: 5px;
             border-left: 3px solid #f39c12;
         }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            background: #95a5a6;
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 16px;
+            margin-left: 5px;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
     </style>
 </head>
 
@@ -325,7 +372,10 @@
                         <th>플랫폼</th>
                         <th>브랜드</th>
                         <th>팔로워수</th>
-                        <th>참여율</th>
+                        <th>최근 조회수 <span class="tooltip">?<span class="tooltiptext">최근 포스트 3개의 평균 조회수<br>예: 2.1M, 500K,
+                                    1.8M</span></span></th>
+                        <th>댓글 수 <span class="tooltip">?<span class="tooltiptext">최근 포스트의 평균 댓글 수<br>예: 1.2K, 340,
+                                    890</span></span></th>
                         <th>구매력<br>(20점)</th>
                         <th>신뢰성<br>(25점)</th>
                         <th>커뮤니티<br>(20점)</th>
@@ -739,7 +789,8 @@
                         </select>
                     </td>
                     <td><input type="text" value="${influencer.followers || ''}" onchange="updateInfluencer('${influencer.id}', 'followers', this.value)" style="width:60px;"></td>
-                    <td><input type="text" value="${influencer.engagement || ''}" onchange="updateInfluencer('${influencer.id}', 'engagement', this.value)" style="width:50px;"></td>
+                    <td><input type="text" value="${influencer.views || ''}" onchange="updateInfluencer('${influencer.id}', 'views', this.value)" style="width:60px;"></td>
+                    <td><input type="text" value="${influencer.comments || ''}" onchange="updateInfluencer('${influencer.id}', 'comments', this.value)" style="width:60px;"></td>
                     <td><input type="number" class="score-input" max="20" value="${influencer.buyingPower || 0}" onchange="updateScore('${influencer.id}', 'buyingPower', this.value)"></td>
                     <td><input type="number" class="score-input" max="25" value="${influencer.trust || 0}" onchange="updateScore('${influencer.id}', 'trust', this.value)"></td>
                     <td><input type="number" class="score-input" max="20" value="${influencer.community || 0}" onchange="updateScore('${influencer.id}', 'community', this.value)"></td>
@@ -775,7 +826,8 @@
                 platform: 'Instagram',
                 brand: '미정',
                 followers: '',
-                engagement: '',
+                views: '',
+                comments: '',
                 buyingPower: 0,
                 trust: 0,
                 community: 0,
