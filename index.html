@@ -264,7 +264,7 @@
             <div class="tab active" onclick="showTab('main')">메인 스크리닝</div>
             <div class="tab" onclick="showTab('checklist')">체크리스트 가이드</div>
             <div class="tab" onclick="showTab('sprint')">3주 스프린트 플랜</div>
-            <div class="tab" onclick="showTab('reddit')">Reddit 바이럴 체크</div>
+            <div class="tab" onclick="showTab('reddit')">컨텐츠 기획</div>
             <div class="tab" onclick="showTab('outreach')">인플루언서 대응 전략</div>
             <div class="tab" onclick="showTab('tasks')">당장 할 일</div>
         </div>
@@ -312,7 +312,7 @@
                 • <strong>Instagram:</strong> 팔로워 30만+ (참여율 3%+ 필수)<br>
                 • <strong>TikTok:</strong> 팔로워 50만+ (최근 1개월 조회수 평균 10만+)<br>
                 • <strong>공통:</strong> 최근 3개월 활동, 뷰티/라이프스타일 관련 콘텐츠 50%+<br>
-                <strong>점수 기준:</strong> S급(90+점) 최우선 | A급(80+점) 즉시컨택 | B급(60-79점) 조건부 | C급(40-59점) 보류 | D급(40점 미만) 제외
+                <strong>점수 기준:</strong> S급(80+점) 최우선 | A급(70+점) 즉시컨택 | B급(55-69점) 조건부 | C급(35-54점) 보류 | D급(35점 미만) 제외
             </div>
 
             <button class="add-btn" onclick="addInfluencer()">+ 인플루언서 추가</button>
@@ -331,7 +331,6 @@
                         <th>커뮤니티<br>(20점)</th>
                         <th>타겟매칭<br>(20점)</th>
                         <th>실사용<br>(15점)</th>
-                        <th>Reddit<br>(10점)</th>
                         <th>총점</th>
                         <th>등급</th>
                         <th>담당자</th>
@@ -459,17 +458,26 @@
 
         <!-- Reddit 바이럴 체크 탭 -->
         <div id="reddit" class="tab-content">
-            <h2>🔥 Reddit 바이럴 체크 가이드</h2>
+            <h2>📋 컨텐츠 기획 가이드</h2>
 
             <div class="checklist-item">
-                <h3>🔥 Reddit 바이럴 점수 매기기 (10점 만점)</h3>
-                <strong>우리 브랜드/카테고리가 Reddit에서 화제가 되고 있는지 확인:</strong><br>
-                • Reddit에서 인플루언서가 직접 언급되거나 추천받는가? (4점)<br>
-                • 우리 제품 카테고리 관련 바이럴 포스트에 참여했는가? (3점)<br>
-                • 관련 서브레딧에서 팔로워들이 자주 언급하는가? (2점)<br>
-                • 비슷한 고민/니즈 포스트에 간접적으로 연관되는가? (1점)<br>
-                <strong>점수 기준:</strong> 8점+ 우수 | 6-7점 보통 | 4-5점 미흡 | 3점 이하 부족<br>
-                <strong>체크 방법:</strong> 아래 가이드 참고
+                <h3>📋 협업 성사 후 컨텐츠 전략 수립</h3>
+                <strong>인플루언서와 협업이 성사된 후, Reddit을 활용한 효과적인 컨텐츠 기획:</strong><br><br>
+
+                <strong>🔍 현재 바이럴 트렌드 파악:</strong><br>
+                • 우리 제품 카테고리와 관련된 최근 인기 포스트 분석<br>
+                • 고객들이 실제로 고민하고 있는 문제점 파악<br>
+                • 경쟁 제품에 대한 Reddit 사용자들의 솔직한 피드백 수집<br><br>
+
+                <strong>💡 컨텐츠 아이디어 발굴:</strong><br>
+                • "Reddit에서 화제가 된 이슈를 우리 제품으로 해결" 관점<br>
+                • 사용자들의 실제 경험담과 우리 제품의 솔루션 연결<br>
+                • 인플루언서가 Reddit 트렌드를 반영한 자연스러운 컨텐츠 제작<br><br>
+
+                <strong>🎯 레버리지 전략:</strong><br>
+                • 바이럴 포스트의 핵심 메시지를 우리 브랜드 스토리에 적용<br>
+                • Reddit 커뮤니티에서 검증된 니즈를 인플루언서 컨텐츠에 반영<br>
+                • 실제 사용자 고민과 우리 제품의 차별점을 자연스럽게 연결
             </div>
 
             <div class="scoring-guide">
@@ -617,7 +625,6 @@
                     <td><input type="number" class="score-input" max="20" value="${influencer.community || 0}" onchange="updateScore('${influencer.id}', 'community', this.value)"></td>
                     <td><input type="number" class="score-input" max="20" value="${influencer.targetMatch || 0}" onchange="updateScore('${influencer.id}', 'targetMatch', this.value)"></td>
                     <td><input type="number" class="score-input" max="15" value="${influencer.realUse || 0}" onchange="updateScore('${influencer.id}', 'realUse', this.value)"></td>
-                    <td><input type="number" class="score-input" max="10" value="${influencer.reddit || 0}" onchange="updateScore('${influencer.id}', 'reddit', this.value)"></td>
                     <td class="total-score">${calculateTotal(influencer)}</td>
                     <td class="${getGradeClass(calculateTotal(influencer))}">${getGrade(calculateTotal(influencer))}</td>
                     <td>
@@ -684,23 +691,22 @@
                 (parseInt(influencer.trust) || 0) +
                 (parseInt(influencer.community) || 0) +
                 (parseInt(influencer.targetMatch) || 0) +
-                (parseInt(influencer.realUse) || 0) +
-                (parseInt(influencer.reddit) || 0);
+                (parseInt(influencer.realUse) || 0);
         }
 
         function getGrade(total) {
-            if (total >= 90) return 'S';
-            if (total >= 80) return 'A';
-            if (total >= 60) return 'B';
-            if (total >= 40) return 'C';
+            if (total >= 80) return 'S';
+            if (total >= 70) return 'A';
+            if (total >= 55) return 'B';
+            if (total >= 35) return 'C';
             return 'D';
         }
 
         function getGradeClass(total) {
-            if (total >= 90) return 'priority-s';
-            if (total >= 80) return 'priority-a';
-            if (total >= 60) return 'priority-b';
-            if (total >= 40) return 'priority-c';
+            if (total >= 80) return 'priority-s';
+            if (total >= 70) return 'priority-a';
+            if (total >= 55) return 'priority-b';
+            if (total >= 35) return 'priority-c';
             return 'priority-d';
         }
 
