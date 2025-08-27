@@ -364,6 +364,24 @@
 
             <button class="add-btn" onclick="addInfluencer()">+ 인플루언서 추가</button>
 
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <div></div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label style="font-size: 12px;">정렬:</label>
+                    <select id="sortFilter" onchange="sortTable()" style="padding: 5px; font-size: 12px;">
+                        <option value="">기본순서</option>
+                        <option value="grade-high">등급 (높은순)</option>
+                        <option value="grade-low">등급 (낮은순)</option>
+                        <option value="total-high">총점 (높은순)</option>
+                        <option value="total-low">총점 (낮은순)</option>
+                        <option value="platform">플랫폼</option>
+                        <option value="brand">브랜드</option>
+                        <option value="assignee">담당자</option>
+                        <option value="status">컨택상태</option>
+                    </select>
+                </div>
+            </div>
+
             <table id="influencerTable">
                 <thead>
                     <tr>
@@ -967,6 +985,111 @@
                     profileUrl: newProfileUrl
                 });
             }
+        }
+
+        function sortTable() {
+            const sortValue = document.getElementById('sortFilter').value;
+            if (!sortValue) {
+                renderTable(); // Reset to original order
+                return;
+            }
+
+            let sortedInfluencers = [...influencers];
+
+            switch (sortValue) {
+                case 'grade-high':
+                    sortedInfluencers.sort((a, b) => {
+                        const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
+                        return gradeOrder[getGrade(calculateTotal(b))] - gradeOrder[getGrade(calculateTotal(a))];
+                    });
+                    break;
+                case 'grade-low':
+                    sortedInfluencers.sort((a, b) => {
+                        const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
+                        return gradeOrder[getGrade(calculateTotal(a))] - gradeOrder[getGrade(calculateTotal(b))];
+                    });
+                    break;
+                case 'total-high':
+                    sortedInfluencers.sort((a, b) => calculateTotal(b) - calculateTotal(a));
+                    break;
+                case 'total-low':
+                    sortedInfluencers.sort((a, b) => calculateTotal(a) - calculateTotal(b));
+                    break;
+                case 'platform':
+                    sortedInfluencers.sort((a, b) => (a.platform || 'Instagram').localeCompare(b.platform || 'Instagram'));
+                    break;
+                case 'brand':
+                    sortedInfluencers.sort((a, b) => (a.brand || '미정').localeCompare(b.brand || '미정'));
+                    break;
+                case 'assignee':
+                    sortedInfluencers.sort((a, b) => (a.assignee || '미정').localeCompare(b.assignee || '미정'));
+                    break;
+                case 'status':
+                    sortedInfluencers.sort((a, b) => (a.status || '대기중').localeCompare(b.status || '대기중'));
+                    break;
+            }
+
+            renderSortedTable(sortedInfluencers);
+        }
+
+        function renderSortedTable(sortedInfluencers) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+
+            sortedInfluencers.forEach((influencer, index) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>
+                        ${influencer.profileUrl ?
+                        `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
+                        `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
+                    }
+                    </td>
+                    <td>
+                        <select onchange="updatePlatformAndUrl('${influencer.id}', this.value)">
+                            <option value="Instagram" ${influencer.platform === 'Instagram' ? 'selected' : ''}>Instagram</option>
+                            <option value="TikTok" ${influencer.platform === 'TikTok' ? 'selected' : ''}>TikTok</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select onchange="updateInfluencer('${influencer.id}', 'brand', this.value)">
+                            <option value="미정" ${influencer.brand === '미정' ? 'selected' : ''}>미정</option>
+                            <option value="ATP" ${influencer.brand === 'ATP' ? 'selected' : ''}>ATP</option>
+                            <option value="RB" ${influencer.brand === 'RB' ? 'selected' : ''}>RB</option>
+                            <option value="ZRD" ${influencer.brand === 'ZRD' ? 'selected' : ''}>ZRD</option>
+                        </select>
+                    </td>
+                    <td><input type="text" value="${influencer.followers || ''}" onchange="updateInfluencer('${influencer.id}', 'followers', this.value)" style="width:60px;"></td>
+                    <td><input type="text" value="${influencer.views || ''}" onchange="updateInfluencer('${influencer.id}', 'views', this.value)" style="width:60px;"></td>
+                    <td><input type="text" value="${influencer.comments || ''}" onchange="updateInfluencer('${influencer.id}', 'comments', this.value)" style="width:60px;"></td>
+                    <td><input type="number" class="score-input" max="20" value="${influencer.buyingPower || 0}" onchange="updateScore('${influencer.id}', 'buyingPower', this.value)"></td>
+                    <td><input type="number" class="score-input" max="25" value="${influencer.trust || 0}" onchange="updateScore('${influencer.id}', 'trust', this.value)"></td>
+                    <td><input type="number" class="score-input" max="20" value="${influencer.community || 0}" onchange="updateScore('${influencer.id}', 'community', this.value)"></td>
+                    <td><input type="number" class="score-input" max="20" value="${influencer.targetMatch || 0}" onchange="updateScore('${influencer.id}', 'targetMatch', this.value)"></td>
+                    <td><input type="number" class="score-input" max="15" value="${influencer.realUse || 0}" onchange="updateScore('${influencer.id}', 'realUse', this.value)"></td>
+                    <td class="total-score">${calculateTotal(influencer)}</td>
+                    <td class="${getGradeClass(calculateTotal(influencer))}">${getGrade(calculateTotal(influencer))}</td>
+                    <td>
+                        <select onchange="updateInfluencer('${influencer.id}', 'assignee', this.value)">
+                            <option value="미정" ${influencer.assignee === '미정' ? 'selected' : ''}>미정</option>
+                            <option value="신희경" ${influencer.assignee === '신희경' ? 'selected' : ''}>신희경</option>
+                            <option value="최연주" ${influencer.assignee === '최연주' ? 'selected' : ''}>최연주</option>
+                            <option value="김유진" ${influencer.assignee === '김유진' ? 'selected' : ''}>김유진</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select onchange="updateInfluencer('${influencer.id}', 'status', this.value)">
+                            <option value="대기중" ${influencer.status === '대기중' ? 'selected' : ''}>대기중</option>
+                            <option value="연락완료" ${influencer.status === '연락완료' ? 'selected' : ''}>연락완료</option>
+                            <option value="답장받음" ${influencer.status === '답장받음' ? 'selected' : ''}>답장받음</option>
+                            <option value="거절" ${influencer.status === '거절' ? 'selected' : ''}>거절</option>
+                        </select>
+                    </td>
+                    <td><input type="text" value="${influencer.budget || ''}" onchange="updateInfluencer('${influencer.id}', 'budget', this.value)" style="width:80px;"></td>
+                    <td><button class="delete-btn" onclick="deleteInfluencer('${influencer.id}')">삭제</button></td>
+                `;
+            });
         }
 
         function showTab(tabName) {
