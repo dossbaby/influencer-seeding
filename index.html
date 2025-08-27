@@ -351,60 +351,102 @@
         <div id="checklist" class="tab-content">
             <h2>📋 점수 매기기 가이드 (팀원용)</h2>
 
-            <div class="checklist-item">
-                <h3>🛒 구매력 (20점 만점)</h3>
-                <strong>이런 걸 찾아보세요:</strong><br>
-                • 제품 추천 후 댓글에 "어디서 사요?" "링크 주세요" 많은가? (5점)<br>
-                • 스토리에 "많이 물어보셔서 링크 올려요" 자주 나오는가? (5점)<br>
-                • 프로모션 코드나 할인링크를 자주 공유하는가? (5점)<br>
-                • 팔로워들이 "또 샀어요" "써보니 좋네요" 후기 댓글 다는가? (5점)<br>
-                <strong>점수 기준:</strong> 16점+ 우수 | 12-15점 보통 | 8-11점 미흡 | 7점 이하 부족
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="checklist-item">
+                    <h3>📊 점수 등급표</h3>
+                    <table style="width: 100%; min-width: auto;">
+                        <tr>
+                            <th>등급</th>
+                            <th>점수</th>
+                            <th>액션</th>
+                        </tr>
+                        <tr>
+                            <td class="priority-s">S급</td>
+                            <td>80점+</td>
+                            <td>최우선 컨택</td>
+                        </tr>
+                        <tr>
+                            <td class="priority-a">A급</td>
+                            <td>70-79점</td>
+                            <td>즉시 컨택</td>
+                        </tr>
+                        <tr>
+                            <td class="priority-b">B급</td>
+                            <td>55-69점</td>
+                            <td>조건부 컨택</td>
+                        </tr>
+                        <tr>
+                            <td class="priority-c">C급</td>
+                            <td>35-54점</td>
+                            <td>보류</td>
+                        </tr>
+                        <tr>
+                            <td class="priority-d">D급</td>
+                            <td>35점 미만</td>
+                            <td>제외</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="checklist-item">
+                    <h3>🛒 구매력 (20점 만점)</h3>
+                    <strong>이런 걸 찾아보세요:</strong><br>
+                    • 제품 추천 후 댓글에 "어디서 사요?" "링크 주세요" 많은가? (5점)<br>
+                    • 스토리에 "많이 물어보셔서 링크 올려요" 자주 나오는가? (5점)<br>
+                    • 프로모션 코드나 할인링크를 자주 공유하는가? (5점)<br>
+                    • 팔로워들이 "또 샀어요" "써보니 좋네요" 후기 댓글 다는가? (5점)<br>
+                    <strong>점수 기준:</strong> 16점+ 우수 | 12-15점 보통 | 8-11점 미흡
+                </div>
             </div>
 
-            <div class="checklist-item">
-                <h3>🎯 신뢰성 (25점 만점)</h3>
-                <strong>이런 걸 체크하세요:</strong><br>
-                • 광고 표시를 정직하게 하는가? (#ad #sponsored 명시) (5점)<br>
-                • 안 좋은 제품도 솔직하게 말하는가? (5점)<br>
-                • 댓글에 진짜 사용 후기가 많은가? (봇 댓글 아닌) (5점)<br>
-                • 일관된 톤앤매너와 가치관을 보여주는가? (5점)<br>
-                • 최근 6개월 내 논란이나 가짜 리뷰 이슈 없었는가? (5점)<br>
-                <strong>점수 기준:</strong> 20점+ 우수 | 15-19점 보통 | 10-14점 미흡 | 9점 이하 부족
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div class="checklist-item">
+                    <h3>🎯 신뢰성 (25점 만점)</h3>
+                    <strong>이런 걸 체크하세요:</strong><br>
+                    • 광고 표시를 정직하게 하는가? (#ad #sponsored 명시) (5점)<br>
+                    • 안 좋은 제품도 솔직하게 말하는가? (5점)<br>
+                    • 댓글에 진짜 사용 후기가 많은가? (봇 댓글 아닌) (5점)<br>
+                    • 일관된 톤앤매너와 가치관을 보여주는가? (5점)<br>
+                    • 최근 6개월 내 논란이나 가짜 리뷰 이슈 없었는가? (5점)<br>
+                    <strong>점수 기준:</strong> 20점+ 우수 | 15-19점 보통 | 10-14점 미흡
+                </div>
+
+                <div class="checklist-item">
+                    <h3>👥 커뮤니티 (20점 만점)</h3>
+                    <strong>이런 걸 확인하세요:</strong><br>
+                    • 댓글 수가 팔로워 대비 많은가? (팔로워의 2% 이상) (5점)<br>
+                    • 팔로워들끼리 서로 대화하고 추천하는가? (5점)<br>
+                    • 인플루언서가 댓글에 직접 답장을 자주 하는가? (5점)<br>
+                    • 최근 한 달 내 바이럴된 콘텐츠(조회수 평소의 3배+) 있는가? (5점)<br>
+                    <strong>점수 기준:</strong> 16점+ 우수 | 12-15점 보통 | 8-11점 미흡
+                </div>
             </div>
 
-            <div class="checklist-item">
-                <h3>👥 커뮤니티 (20점 만점)</h3>
-                <strong>이런 걸 확인하세요:</strong><br>
-                • 댓글 수가 팔로워 대비 많은가? (팔로워의 2% 이상) (5점)<br>
-                • 팔로워들끼리 서로 대화하고 추천하는가? (5점)<br>
-                • 인플루언서가 댓글에 직접 답장을 자주 하는가? (5점)<br>
-                • 최근 한 달 내 바이럴된 콘텐츠(조회수 평소의 3배+) 있는가? (5점)<br>
-                <strong>점수 기준:</strong> 16점+ 우수 | 12-15점 보통 | 8-11점 미흡 | 7점 이하 부족
-            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="checklist-item">
+                    <h3>🎯 타겟매칭 (20점 만점)</h3>
+                    <strong>우리 타겟(K-mom, 25-45세)과 얼마나 맞는지:</strong><br>
+                    • 인플루언서 본인이 엄마이거나 결혼 준비 중인가? (5점)<br>
+                    • 한국/아시아 뷰티 제품을 자주 사용하는가? (5점)<br>
+                    • 팔로워 댓글을 보니 비슷한 연령대가 많은가? (5점)<br>
+                    • 가정, 육아, 라이프스타일 콘텐츠 비중이 높은가? (5점)<br>
+                    <strong>점수 기준:</strong> 16점+ 우수 | 12-15점 보통 | 8-11점 미흡
+                </div>
 
-            <div class="checklist-item">
-                <h3>🎯 타겟매칭 (20점 만점)</h3>
-                <strong>우리 타겟(K-mom, 25-45세)과 얼마나 맞는지:</strong><br>
-                • 인플루언서 본인이 엄마이거나 결혼 준비 중인가? (5점)<br>
-                • 한국/아시아 뷰티 제품을 자주 사용하는가? (5점)<br>
-                • 팔로워 댓글을 보니 비슷한 연령대가 많은가? (5점)<br>
-                • 가정, 육아, 라이프스타일 콘텐츠 비중이 높은가? (5점)<br>
-                <strong>점수 기준:</strong> 16점+ 우수 | 12-15점 보통 | 8-11점 미흡 | 7점 이하 부족
-            </div>
-
-            <div class="checklist-item">
-                <h3>✅ 실사용 (15점 만점)</h3>
-                <strong>진짜 제품을 써봤는지 확인:</strong><br>
-                • 스토리나 피드에 자연스럽게 제품 사용하는 모습? (5점)<br>
-                • 제품의 장단점을 구체적으로 설명하는가? (5점)<br>
-                • "재구매했어요" "떨어져가서 또 주문" 같은 멘션? (5점)<br>
-                <strong>점수 기준:</strong> 12점+ 우수 | 9-11점 보통 | 6-8점 미흡 | 5점 이하 부족
+                <div class="checklist-item">
+                    <h3>✅ 실사용 (15점 만점)</h3>
+                    <strong>진짜 제품을 써봤는지 확인:</strong><br>
+                    • 스토리나 피드에 자연스럽게 제품 사용하는 모습? (5점)<br>
+                    • 제품의 장단점을 구체적으로 설명하는가? (5점)<br>
+                    • "재구매했어요" "떨어져가서 또 주문" 같은 멘션? (5점)<br>
+                    <strong>점수 기준:</strong> 12점+ 우수 | 9-11점 보통 | 6-8점 미흡
+                </div>
             </div>
         </div>
 
         <!-- 스프린트 플랜 탭 -->
         <div id="sprint" class="tab-content">
-            <h2>📅 3주 스프린트 플랜</h2>
+            <h2>📅 4주 스프린트 플랜</h2>
 
             <div class="sprint-week">
                 <div class="week-title">1주차 (9월 1일 월 - 5일 금): 대량 스크리닝</div>
@@ -427,23 +469,34 @@
             </div>
 
             <div class="sprint-week">
-                <div class="week-title">2주차 (9월 8일 월 - 12일 금): 정밀 분석 & 1차 컨택</div>
-                <strong>목표:</strong> 상위 50명 정밀 분석, S급+A급 즉시 컨택
+                <div class="week-title">2주차 (9월 8일 월 - 12일 금): 체크리스트 검증 & 1차 컨택</div>
+                <strong>목표:</strong> 상위 50명 체크리스트 검증, S급+A급 즉시 컨택
 
                 <div class="team-task">
-                    <strong>신희경:</strong> 25명 구매력+신뢰성 점수 매기기<br>
-                    <strong>최연주:</strong> 25명 커뮤니티+타겟매칭+Reddit 점수 매기기<br>
+                    <strong>신희경:</strong> 25명 구매력+신뢰성 체크리스트 검증<br>
+                    <strong>최연주:</strong> 25명 커뮤니티+타겟매칭 체크리스트 검증<br>
                     <strong>김유진:</strong> S급+A급 나오는 즉시 아웃리치 시작
                 </div>
             </div>
 
             <div class="sprint-week">
-                <div class="week-title">3주차 (9월 15일 월 - 19일 금): 전면 공세</div>
+                <div class="week-title">3주차 (9월 15일 월 - 19일 금): 인플루언서 확정</div>
                 <strong>목표:</strong> 30명 이상 컨택, 10명 이상 1차 미팅 확정
 
                 <div class="team-task">
                     <strong>전체:</strong> 목표 달성까지 지속적인 컨택<br>
                     응답률 낮을 걸 대비해서 **3배수 법칙** 적용 (목표 10명 → 30명 컨택)
+                </div>
+            </div>
+
+            <div class="sprint-week">
+                <div class="week-title">4주차 (9월 22일 월 - 26일 금): 컨텐츠 기획</div>
+                <strong>목표:</strong> 확정 인플루언서별 맞춤 컨텐츠 기획 완료
+
+                <div class="team-task">
+                    <strong>전체:</strong> Reddit 바이럴 트렌드 분석 및 브랜드별 컨텐츠 전략 수립<br>
+                    <strong>김유진:</strong> 인플루언서별 후킹 메시지 및 스토리라인 기획<br>
+                    <strong>신희경/최연주:</strong> 제품별 차별점과 Reddit 화제 연결점 도출
                 </div>
             </div>
 
