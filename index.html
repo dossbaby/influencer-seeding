@@ -775,7 +775,7 @@
                     }
 </td>
                     <td>
-                        <select onchange="updateInfluencer('${influencer.id}', 'platform', this.value)">
+                        <select onchange="updatePlatformAndUrl('${influencer.id}', this.value)">
                             <option value="Instagram" ${influencer.platform === 'Instagram' ? 'selected' : ''}>Instagram</option>
                             <option value="TikTok" ${influencer.platform === 'TikTok' ? 'selected' : ''}>TikTok</option>
                         </select>
@@ -937,6 +937,36 @@
             influencersRef.child(id).update({
                 profileUrl: null
             });
+        }
+
+        function updatePlatformAndUrl(id, newPlatform) {
+            const influencer = influencers.find(inf => inf.id === id);
+            if (!influencer) return;
+
+            // 플랫폼 업데이트
+            influencersRef.child(id).update({ platform: newPlatform });
+
+            // 이미 링크가 있다면 새 플랫폼에 맞게 URL 변경
+            if (influencer.profileUrl && influencer.name) {
+                let cleanUsername = influencer.name;
+                let newProfileUrl = '';
+
+                if (newPlatform === 'Instagram') {
+                    cleanUsername = influencer.name.replace('@', '');
+                    newProfileUrl = `https://www.instagram.com/${cleanUsername}/`;
+                } else if (newPlatform === 'TikTok') {
+                    if (!influencer.name.startsWith('@')) {
+                        cleanUsername = '@' + influencer.name;
+                    }
+                    newProfileUrl = `https://www.tiktok.com/${cleanUsername}`;
+                }
+
+                // 새 URL로 업데이트
+                influencersRef.child(id).update({
+                    name: cleanUsername,
+                    profileUrl: newProfileUrl
+                });
+            }
         }
 
         function showTab(tabName) {
