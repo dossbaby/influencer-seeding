@@ -336,7 +336,6 @@
                         <th>담당자</th>
                         <th>컨택상태</th>
                         <th>희망단가</th>
-                        <th>메모</th>
                         <th>삭제</th>
                     </tr>
                 </thead>
@@ -721,7 +720,7 @@
                     <td>${index + 1}</td>
                     <td>
     ${influencer.profileUrl ?
-                        `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a><br><small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
+                        `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
                         `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
                     }
 </td>
@@ -765,7 +764,6 @@
                         </select>
                     </td>
                     <td><input type="text" value="${influencer.budget || ''}" onchange="updateInfluencer('${influencer.id}', 'budget', this.value)" style="width:80px;"></td>
-                    <td><input type="text" value="${influencer.memo || ''}" onchange="updateInfluencer('${influencer.id}', 'memo', this.value)" style="width:100px;"></td>
                     <td><button class="delete-btn" onclick="deleteInfluencer('${influencer.id}')">삭제</button></td>
                 `;
             });
@@ -786,8 +784,7 @@
                 reddit: 0,
                 assignee: '미정',
                 status: '대기중',
-                budget: '',
-                memo: ''
+                budget: ''
             };
 
             influencersRef.push(newInfluencer);
