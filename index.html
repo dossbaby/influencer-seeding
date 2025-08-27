@@ -719,7 +719,7 @@
                 const row = tableBody.insertRow();
                 row.innerHTML = `
                     <td>${index + 1}</td>
-                    <td><input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" style="width:100px;"></td>
+                    <td><input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;"></td>
                     <td>
                         <select onchange="updateInfluencer('${influencer.id}', 'platform', this.value)">
                             <option value="Instagram" ${influencer.platform === 'Instagram' ? 'selected' : ''}>Instagram</option>
@@ -846,6 +846,39 @@
             document.getElementById('responded').textContent = responded;
         }
 
+        function handleNameEnter(event, id) {
+            if (event.key === 'Enter') {
+                const inputValue = event.target.value.trim();
+                if (inputValue) {
+                    convertToLink(id, inputValue);
+                }
+            }
+        }
+
+        function convertToLink(id, username) {
+            const influencer = influencers.find(inf => inf.id === id);
+            if (!influencer) return;
+
+            const platform = influencer.platform || 'Instagram';
+            let cleanUsername = username;
+            let profileUrl = '';
+
+            if (platform === 'Instagram') {
+                cleanUsername = username.replace('@', '');
+                profileUrl = `https://www.instagram.com/${cleanUsername}/`;
+            } else if (platform === 'TikTok') {
+                if (!username.startsWith('@')) {
+                    cleanUsername = '@' + username;
+                }
+                profileUrl = `https://www.tiktok.com/${cleanUsername}`;
+            }
+
+            influencersRef.child(id).update({
+                name: username,
+                profileUrl: profileUrl
+            });
+        }
+
         function showTab(tabName) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -856,6 +889,8 @@
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
         }
+
+
     </script>
 </body>
 
