@@ -864,96 +864,103 @@
                     "[브랜드명] × @[username] 특별 협업 제안 (10월 아마존 런칭)"<br><br>
 
                     <strong>이메일 템플릿 구조:</strong><br>
-                    1
+                    1. 개인화된 인사 (최근 콘텐츠 언급)<br>
+                    2. 브랜드 소개 (Derma-approved 강조)<br>
+                    3. 구체적 협업 제안 및 혜택<br>
+                    4. 포트폴리오/미디어킷 첨부<br>
+                    5. 명확한 Call-to-Action
+                </div>
+            </div>
+        </div>
 
-                    <!-- 당장 할 일 탭 -->
-                    <div id="tasks" class="tab-content">
-                        <h2>🚨 당장 할 일 (스프린트 플랜 기반)</h2>
+        <!-- 당장 할 일 탭 -->
+        <div id="tasks" class="tab-content">
+            <h2>🚨 당장 할 일 (스프린트 플랜 기반)</h2>
 
-                        <div class="immediate-tasks">
-                            <div class="task-day">
-                                <h3>📅 Day 1 (9월 1일 월요일)</h3>
-                                <strong>오전:</strong><br>
-                                ✅ 이 템플릿을 팀원들과 공유 (HTML 파일)<br>
-                                ✅ 팀 미팅 30분 (역할 분담 확정 - 유진님 50명, 희경님 25명, 연주님 25명)<br>
-                                ✅ 경쟁사 3개 브랜드 최근 협업 인플루언서 각자 5명씩 찾기<br><br>
+            <div class="immediate-tasks">
+                <div class="task-day">
+                    <h3>📅 Day 1 (9월 1일 월요일)</h3>
+                    <strong>오전:</strong><br>
+                    ✅ 이 템플릿을 팀원들과 공유 (HTML 파일)<br>
+                    ✅ 팀 미팅 30분 (역할 분담 확정 - 유진님 50명, 희경님 25명, 연주님 25명)<br>
+                    ✅ 경쟁사 3개 브랜드 최근 협업 인플루언서 각자 5명씩 찾기<br><br>
 
-                                <strong>오후:</strong><br>
-                                ✅ 각자 첫 10명 인플루언서 리스팅 시작<br>
-                                ✅ 팔로워 수, 참여율, 브랜드 매칭 우선 체크
-                            </div>
-
-                            <div class="task-day">
-                                <h3>📅 Day 2-5 (9월 2일-5일)</h3>
-                                ✅ <strong>김유진:</strong> 하루 10명씩 리스팅 (총 50명)<br>
-                                ✅ <strong>신희경:</strong> 하루 5명씩 리스팅 (총 25명)<br>
-                                ✅ <strong>최연주:</strong> 하루 5명 + 경쟁사 분석 1개<br>
-                                ✅ 매일 오후 3시 10분 체크인 미팅
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 다른 탭들도 기존 내용 그대로 유지 -->
+                    <strong>오후:</strong><br>
+                    ✅ 각자 첫 10명 인플루언서 리스팅 시작<br>
+                    ✅ 팔로워 수, 참여율, 브랜드 매칭 우선 체크
                 </div>
 
+                <div class="task-day">
+                    <h3>📅 Day 2-5 (9월 2일-5일)</h3>
+                    ✅ <strong>김유진:</strong> 하루 10명씩 리스팅 (총 50명)<br>
+                    ✅ <strong>신희경:</strong> 하루 5명씩 리스팅 (총 25명)<br>
+                    ✅ <strong>최연주:</strong> 하루 5명 + 경쟁사 분석 1개<br>
+                    ✅ 매일 오후 3시 10분 체크인 미팅
+                </div>
+            </div>
+        </div>
 
-                <!-- Firebase SDK -->
-                <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-                <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+        <!-- 다른 탭들도 기존 내용 그대로 유지 -->
+    </div>
 
-                <script>
-                    // ⚠️ 여기에 Firebase 설정을 넣으세요 (Step 4에서 설명)
-                    const firebaseConfig = {
-                        apiKey: "AIzaSyBQ8Y-YixAjJscZ8s4_eFMjVbtxZpD1Mko",
-                        authDomain: "influencer-seeding-8b702.firebaseapp.com",
-                        databaseURL: "https://influencer-seeding-8b702-default-rtdb.asia-southeast1.firebasedatabase.app",
-                        projectId: "influencer-seeding-8b702",
-                        storageBucket: "influencer-seeding-8b702.firebasestorage.app",
-                        messagingSenderId: "730517045041",
-                        appId: "1:730517045041:web:0524c5f5157f9e42dcba10"
-                    };
 
-                    // Firebase 초기화
-                    firebase.initializeApp(firebaseConfig);
-                    const database = firebase.database();
-                    const influencersRef = database.ref('influencers');
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
-                    let influencers = [];
-                    let rowCount = 0;
+    <script>
+        // ⚠️ 여기에 Firebase 설정을 넣으세요 (Step 4에서 설명)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBQ8Y-YixAjJscZ8s4_eFMjVbtxZpD1Mko",
+            authDomain: "influencer-seeding-8b702.firebaseapp.com",
+            databaseURL: "https://influencer-seeding-8b702-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "influencer-seeding-8b702",
+            storageBucket: "influencer-seeding-8b702.firebasestorage.app",
+            messagingSenderId: "730517045041",
+            appId: "1:730517045041:web:0524c5f5157f9e42dcba10"
+        };
 
-                    // Firebase 연결 상태 확인
-                    database.ref('.info/connected').on('value', function (snapshot) {
-                        const status = document.getElementById('firebaseStatus');
-                        if (snapshot.val() === true) {
-                            status.innerHTML = '✅ Firebase 연결됨 - 실시간 동기화 활성';
-                            status.className = 'firebase-status';
-                        } else {
-                            status.innerHTML = '❌ Firebase 연결 끊어짐';
-                            status.className = 'firebase-error';
-                        }
-                    });
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        const influencersRef = database.ref('influencers');
 
-                    // 데이터 로드
-                    influencersRef.on('value', function (snapshot) {
-                        const data = snapshot.val();
-                        influencers = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
-                        renderTable();
-                        updateStats();
-                    });
+        let influencers = [];
+        let rowCount = 0;
 
-                    function renderTable() {
-                        const tableBody = document.getElementById('tableBody');
-                        tableBody.innerHTML = '';
+        // Firebase 연결 상태 확인
+        database.ref('.info/connected').on('value', function (snapshot) {
+            const status = document.getElementById('firebaseStatus');
+            if (snapshot.val() === true) {
+                status.innerHTML = '✅ Firebase 연결됨 - 실시간 동기화 활성';
+                status.className = 'firebase-status';
+            } else {
+                status.innerHTML = '❌ Firebase 연결 끊어짐';
+                status.className = 'firebase-error';
+            }
+        });
 
-                        influencers.forEach((influencer, index) => {
-                            const row = tableBody.insertRow();
-                            row.innerHTML = `
+        // 데이터 로드
+        influencersRef.on('value', function (snapshot) {
+            const data = snapshot.val();
+            influencers = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
+            renderTable();
+            updateStats();
+        });
+
+        function renderTable() {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+
+            influencers.forEach((influencer, index) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
                     <td>${index + 1}</td>
                     <td>
     ${influencer.profileUrl ?
-                                    `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
-                                    `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
-                                }
+                        `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
+                        `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
+                    }
 </td>
                     <td>
                         <select onchange="updatePlatformAndUrl('${influencer.id}', this.value)">
@@ -998,217 +1005,217 @@
                     <td><input type="text" value="${influencer.budget || ''}" onchange="updateInfluencer('${influencer.id}', 'budget', this.value)" style="width:80px;"></td>
                     <td><button class="delete-btn" onclick="deleteInfluencer('${influencer.id}')">삭제</button></td>
                 `;
-                        });
+            });
+        }
+
+        function addInfluencer() {
+            const newInfluencer = {
+                name: '',
+                platform: 'Instagram',
+                brand: '미정',
+                followers: '',
+                views: '',
+                comments: '',
+                buyingPower: 0,
+                trust: 0,
+                community: 0,
+                targetMatch: 0,
+                realUse: 0,
+                reddit: 0,
+                assignee: '미정',
+                status: '대기중',
+                budget: '',
+                selected: false
+            };
+
+            influencersRef.push(newInfluencer);
+        }
+
+        function deleteInfluencer(id) {
+            if (confirm('정말로 삭제하시겠습니까?')) {
+                influencersRef.child(id).remove();
+            }
+        }
+
+        function updateInfluencer(id, field, value) {
+            influencersRef.child(id).update({ [field]: value });
+        }
+
+        function updateScore(id, field, value) {
+            influencersRef.child(id).update({ [field]: parseInt(value) || 0 });
+        }
+
+        function calculateTotal(influencer) {
+            return (parseInt(influencer.buyingPower) || 0) +
+                (parseInt(influencer.trust) || 0) +
+                (parseInt(influencer.community) || 0) +
+                (parseInt(influencer.targetMatch) || 0) +
+                (parseInt(influencer.realUse) || 0);
+        }
+
+        function getGrade(total) {
+            if (total >= 80) return 'S';
+            if (total >= 70) return 'A';
+            if (total >= 55) return 'B';
+            if (total >= 35) return 'C';
+            return 'D';
+        }
+
+        function getGradeClass(total) {
+            if (total >= 80) return 'priority-s';
+            if (total >= 70) return 'priority-a';
+            if (total >= 55) return 'priority-b';
+            if (total >= 35) return 'priority-c';
+            return 'priority-d';
+        }
+
+        function updateStats() {
+            const totalCandidates = influencers.length;
+            let aPriority = 0;
+            let contacted = 0;
+            let responded = 0;
+
+            influencers.forEach(influencer => {
+                const total = calculateTotal(influencer);
+                if (total >= 80) aPriority++;
+
+                if (influencer.status === '연락완료' || influencer.status === '답장받음') contacted++;
+                if (influencer.status === '답장받음') responded++;
+            });
+
+            document.getElementById('totalCandidates').textContent = totalCandidates;
+            document.getElementById('aPriority').textContent = aPriority;
+            document.getElementById('contacted').textContent = contacted;
+            document.getElementById('responded').textContent = responded;
+        }
+
+        function handleNameEnter(event, id) {
+            if (event.key === 'Enter') {
+                const inputValue = event.target.value.trim();
+                if (inputValue) {
+                    convertToLink(id, inputValue);
+                }
+            }
+        }
+
+        function convertToLink(id, username) {
+            const influencer = influencers.find(inf => inf.id === id);
+            if (!influencer) return;
+
+            const platform = influencer.platform || 'Instagram';
+            let cleanUsername = username;
+            let profileUrl = '';
+
+            if (platform === 'Instagram') {
+                cleanUsername = username.replace('@', '');
+                profileUrl = `https://www.instagram.com/${cleanUsername}/`;
+            } else if (platform === 'TikTok') {
+                if (!username.startsWith('@')) {
+                    cleanUsername = '@' + username;
+                }
+                profileUrl = `https://www.tiktok.com/${cleanUsername}`;
+            }
+
+            influencersRef.child(id).update({
+                name: username,
+                profileUrl: profileUrl
+            });
+        }
+
+        function editName(id) {
+            influencersRef.child(id).update({
+                profileUrl: null
+            });
+        }
+
+        function updatePlatformAndUrl(id, newPlatform) {
+            const influencer = influencers.find(inf => inf.id === id);
+            if (!influencer) return;
+
+            // 플랫폼 업데이트
+            influencersRef.child(id).update({ platform: newPlatform });
+
+            // 이미 링크가 있다면 새 플랫폼에 맞게 URL 변경
+            if (influencer.profileUrl && influencer.name) {
+                let cleanUsername = influencer.name;
+                let newProfileUrl = '';
+
+                if (newPlatform === 'Instagram') {
+                    cleanUsername = influencer.name.replace('@', '');
+                    newProfileUrl = `https://www.instagram.com/${cleanUsername}/`;
+                } else if (newPlatform === 'TikTok') {
+                    if (!influencer.name.startsWith('@')) {
+                        cleanUsername = '@' + influencer.name;
                     }
+                    newProfileUrl = `https://www.tiktok.com/${cleanUsername}`;
+                }
 
-                    function addInfluencer() {
-                        const newInfluencer = {
-                            name: '',
-                            platform: 'Instagram',
-                            brand: '미정',
-                            followers: '',
-                            views: '',
-                            comments: '',
-                            buyingPower: 0,
-                            trust: 0,
-                            community: 0,
-                            targetMatch: 0,
-                            realUse: 0,
-                            reddit: 0,
-                            assignee: '미정',
-                            status: '대기중',
-                            budget: '',
-                            selected: false
-                        };
+                // 새 URL로 업데이트
+                influencersRef.child(id).update({
+                    name: cleanUsername,
+                    profileUrl: newProfileUrl
+                });
+            }
+        }
 
-                        influencersRef.push(newInfluencer);
-                    }
+        function sortTable() {
+            const sortValue = document.getElementById('sortFilter').value;
+            if (!sortValue) {
+                renderTable(); // Reset to original order
+                return;
+            }
 
-                    function deleteInfluencer(id) {
-                        if (confirm('정말로 삭제하시겠습니까?')) {
-                            influencersRef.child(id).remove();
-                        }
-                    }
+            let sortedInfluencers = [...influencers];
 
-                    function updateInfluencer(id, field, value) {
-                        influencersRef.child(id).update({ [field]: value });
-                    }
+            switch (sortValue) {
+                case 'grade-high':
+                    sortedInfluencers.sort((a, b) => {
+                        const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
+                        return gradeOrder[getGrade(calculateTotal(b))] - gradeOrder[getGrade(calculateTotal(a))];
+                    });
+                    break;
+                case 'grade-low':
+                    sortedInfluencers.sort((a, b) => {
+                        const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
+                        return gradeOrder[getGrade(calculateTotal(a))] - gradeOrder[getGrade(calculateTotal(b))];
+                    });
+                    break;
+                case 'total-high':
+                    sortedInfluencers.sort((a, b) => calculateTotal(b) - calculateTotal(a));
+                    break;
+                case 'total-low':
+                    sortedInfluencers.sort((a, b) => calculateTotal(a) - calculateTotal(b));
+                    break;
+                case 'platform':
+                    sortedInfluencers.sort((a, b) => (a.platform || 'Instagram').localeCompare(b.platform || 'Instagram'));
+                    break;
+                case 'brand':
+                    sortedInfluencers.sort((a, b) => (a.brand || '미정').localeCompare(b.brand || '미정'));
+                    break;
+                case 'assignee':
+                    sortedInfluencers.sort((a, b) => (a.assignee || '미정').localeCompare(b.assignee || '미정'));
+                    break;
+                case 'status':
+                    sortedInfluencers.sort((a, b) => (a.status || '대기중').localeCompare(b.status || '대기중'));
+                    break;
+            }
 
-                    function updateScore(id, field, value) {
-                        influencersRef.child(id).update({ [field]: parseInt(value) || 0 });
-                    }
+            renderSortedTable(sortedInfluencers);
+        }
 
-                    function calculateTotal(influencer) {
-                        return (parseInt(influencer.buyingPower) || 0) +
-                            (parseInt(influencer.trust) || 0) +
-                            (parseInt(influencer.community) || 0) +
-                            (parseInt(influencer.targetMatch) || 0) +
-                            (parseInt(influencer.realUse) || 0);
-                    }
+        function renderSortedTable(sortedInfluencers) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
 
-                    function getGrade(total) {
-                        if (total >= 80) return 'S';
-                        if (total >= 70) return 'A';
-                        if (total >= 55) return 'B';
-                        if (total >= 35) return 'C';
-                        return 'D';
-                    }
-
-                    function getGradeClass(total) {
-                        if (total >= 80) return 'priority-s';
-                        if (total >= 70) return 'priority-a';
-                        if (total >= 55) return 'priority-b';
-                        if (total >= 35) return 'priority-c';
-                        return 'priority-d';
-                    }
-
-                    function updateStats() {
-                        const totalCandidates = influencers.length;
-                        let aPriority = 0;
-                        let contacted = 0;
-                        let responded = 0;
-
-                        influencers.forEach(influencer => {
-                            const total = calculateTotal(influencer);
-                            if (total >= 80) aPriority++;
-
-                            if (influencer.status === '연락완료' || influencer.status === '답장받음') contacted++;
-                            if (influencer.status === '답장받음') responded++;
-                        });
-
-                        document.getElementById('totalCandidates').textContent = totalCandidates;
-                        document.getElementById('aPriority').textContent = aPriority;
-                        document.getElementById('contacted').textContent = contacted;
-                        document.getElementById('responded').textContent = responded;
-                    }
-
-                    function handleNameEnter(event, id) {
-                        if (event.key === 'Enter') {
-                            const inputValue = event.target.value.trim();
-                            if (inputValue) {
-                                convertToLink(id, inputValue);
-                            }
-                        }
-                    }
-
-                    function convertToLink(id, username) {
-                        const influencer = influencers.find(inf => inf.id === id);
-                        if (!influencer) return;
-
-                        const platform = influencer.platform || 'Instagram';
-                        let cleanUsername = username;
-                        let profileUrl = '';
-
-                        if (platform === 'Instagram') {
-                            cleanUsername = username.replace('@', '');
-                            profileUrl = `https://www.instagram.com/${cleanUsername}/`;
-                        } else if (platform === 'TikTok') {
-                            if (!username.startsWith('@')) {
-                                cleanUsername = '@' + username;
-                            }
-                            profileUrl = `https://www.tiktok.com/${cleanUsername}`;
-                        }
-
-                        influencersRef.child(id).update({
-                            name: username,
-                            profileUrl: profileUrl
-                        });
-                    }
-
-                    function editName(id) {
-                        influencersRef.child(id).update({
-                            profileUrl: null
-                        });
-                    }
-
-                    function updatePlatformAndUrl(id, newPlatform) {
-                        const influencer = influencers.find(inf => inf.id === id);
-                        if (!influencer) return;
-
-                        // 플랫폼 업데이트
-                        influencersRef.child(id).update({ platform: newPlatform });
-
-                        // 이미 링크가 있다면 새 플랫폼에 맞게 URL 변경
-                        if (influencer.profileUrl && influencer.name) {
-                            let cleanUsername = influencer.name;
-                            let newProfileUrl = '';
-
-                            if (newPlatform === 'Instagram') {
-                                cleanUsername = influencer.name.replace('@', '');
-                                newProfileUrl = `https://www.instagram.com/${cleanUsername}/`;
-                            } else if (newPlatform === 'TikTok') {
-                                if (!influencer.name.startsWith('@')) {
-                                    cleanUsername = '@' + influencer.name;
-                                }
-                                newProfileUrl = `https://www.tiktok.com/${cleanUsername}`;
-                            }
-
-                            // 새 URL로 업데이트
-                            influencersRef.child(id).update({
-                                name: cleanUsername,
-                                profileUrl: newProfileUrl
-                            });
-                        }
-                    }
-
-                    function sortTable() {
-                        const sortValue = document.getElementById('sortFilter').value;
-                        if (!sortValue) {
-                            renderTable(); // Reset to original order
-                            return;
-                        }
-
-                        let sortedInfluencers = [...influencers];
-
-                        switch (sortValue) {
-                            case 'grade-high':
-                                sortedInfluencers.sort((a, b) => {
-                                    const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
-                                    return gradeOrder[getGrade(calculateTotal(b))] - gradeOrder[getGrade(calculateTotal(a))];
-                                });
-                                break;
-                            case 'grade-low':
-                                sortedInfluencers.sort((a, b) => {
-                                    const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
-                                    return gradeOrder[getGrade(calculateTotal(a))] - gradeOrder[getGrade(calculateTotal(b))];
-                                });
-                                break;
-                            case 'total-high':
-                                sortedInfluencers.sort((a, b) => calculateTotal(b) - calculateTotal(a));
-                                break;
-                            case 'total-low':
-                                sortedInfluencers.sort((a, b) => calculateTotal(a) - calculateTotal(b));
-                                break;
-                            case 'platform':
-                                sortedInfluencers.sort((a, b) => (a.platform || 'Instagram').localeCompare(b.platform || 'Instagram'));
-                                break;
-                            case 'brand':
-                                sortedInfluencers.sort((a, b) => (a.brand || '미정').localeCompare(b.brand || '미정'));
-                                break;
-                            case 'assignee':
-                                sortedInfluencers.sort((a, b) => (a.assignee || '미정').localeCompare(b.assignee || '미정'));
-                                break;
-                            case 'status':
-                                sortedInfluencers.sort((a, b) => (a.status || '대기중').localeCompare(b.status || '대기중'));
-                                break;
-                        }
-
-                        renderSortedTable(sortedInfluencers);
-                    }
-
-                    function renderSortedTable(sortedInfluencers) {
-                        const tableBody = document.getElementById('tableBody');
-                        tableBody.innerHTML = '';
-
-                        sortedInfluencers.forEach((influencer, index) => {
-                            const row = tableBody.insertRow();
-                            row.innerHTML = `
+            sortedInfluencers.forEach((influencer, index) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
                     <td>${index + 1}</td>
                     <td>
                         ${influencer.profileUrl ?
-                                    `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
-                                    `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
-                                }
+                        `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
+                        `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
+                    }
                     </td>
                     <td>
                         <select onchange="updatePlatformAndUrl('${influencer.id}', this.value)">
@@ -1253,22 +1260,22 @@
                     <td><input type="text" value="${influencer.budget || ''}" onchange="updateInfluencer('${influencer.id}', 'budget', this.value)" style="width:80px;"></td>
                     <td><button class="delete-btn" onclick="deleteInfluencer('${influencer.id}')">삭제</button></td>
                 `;
-                        });
-                    }
+            });
+        }
 
-                    function showTab(tabName) {
-                        const contents = document.querySelectorAll('.tab-content');
-                        contents.forEach(content => content.classList.remove('active'));
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
 
-                        const tabs = document.querySelectorAll('.tab');
-                        tabs.forEach(tab => tab.classList.remove('active'));
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
 
-                        document.getElementById(tabName).classList.add('active');
-                        event.target.classList.add('active');
-                    }
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
 
 
-                </script>
+    </script>
 </body>
 
 </html>
