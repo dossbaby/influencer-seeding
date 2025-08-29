@@ -512,6 +512,164 @@
             border-radius: 12px;
             margin: 20px 0;
         }
+
+        /* Buy Box 탭 전용 스타일 */
+        #buybox .critical-insight {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        #buybox .key-facts {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(116, 185, 255, 0.3);
+        }
+
+        #buybox .event-comparison {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        #buybox .hypothesis-box {
+            background: #f8f9ff;
+            border: 2px solid #6c5ce7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        #buybox .hypothesis-box::before {
+            content: "💡";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-size: 24px;
+        }
+
+        #buybox .strategy-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #buybox .strategy-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #buybox .strategy-table th {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #buybox .verification-box {
+            background: #d1ecf1;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        #buybox .realistic-calculation {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        #buybox .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #856404;
+        }
+
+        #buybox .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        #buybox .action-card {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        #buybox .conclusion-box {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        #buybox .fact-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        #buybox .fact-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #buybox .fact-table th {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        #buybox .fact-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        #buybox .fact-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        #buybox h2 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        #buybox h3 {
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
     </style>
 </head>
 
@@ -525,6 +683,7 @@
             <div class="tab" onclick="showTab('roi')">프라임데이 분석</div>
             <div class="tab" onclick="showTab('reddit')">컨텐츠 기획</div>
             <div class="tab" onclick="showTab('outreach')">인플루언서 대응 전략</div>
+            <div class="tab" onclick="showTab('buybox')">Buy Box 확보</div>
             <div class="tab" onclick="showTab('tasks')">당장 할 일</div>
         </div>
     </div>
@@ -1689,270 +1848,653 @@
                     <strong>권장 전략: 안정적 시너지 + 점진적 PPC 확장 + 충분한 재고</strong>
                 </div>
             </div>
+        </div>
 
+        <!-- Reddit 바이럴 체크 탭 -->
+        <div id="reddit" class="tab-content">
+            <h2>📋 컨텐츠 기획 가이드</h2>
 
-            <!-- Reddit 바이럴 체크 탭 -->
-            <div id="reddit" class="tab-content">
-                <h2>📋 컨텐츠 기획 가이드</h2>
+            <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                <p style="margin: 0; color: #666; line-height: 1.5;">
+                    인플루언서와 협업이 성사된 후, Reddit을 활용한 효과적인 컨텐츠 기획을 위한 가이드입니다.
+                    바이럴 트렌드 분석부터 실제 컨텐츠 제작까지의 전략을 단계별로 수립할 수 있습니다.
+                </p>
+            </div>
 
-                <div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
-                    <p style="margin: 0; color: #666; line-height: 1.5;">
-                        인플루언서와 협업이 성사된 후, Reddit을 활용한 효과적인 컨텐츠 기획을 위한 가이드입니다.
-                        바이럴 트렌드 분석부터 실제 컨텐츠 제작까지의 전략을 단계별로 수립할 수 있습니다.
-                    </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                <div class="checklist-item">
+                    <h3>🔍 현재 바이럴 트렌드 파악</h3>
+                    • 우리 제품 카테고리와 관련된 최근 인기 포스트 분석<br>
+                    • 고객들이 실제로 고민하고 있는 문제점 파악<br>
+                    • 경쟁 제품에 대한 Reddit 사용자들의 솔직한 피드백 수집<br>
+                    • 브랜드별 서브레딧에서 주간/월간 인기 토픽 모니터링<br>
+                    • 계절별, 이벤트별 관심사 변화 추적
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                    <div class="checklist-item">
-                        <h3>🔍 현재 바이럴 트렌드 파악</h3>
-                        • 우리 제품 카테고리와 관련된 최근 인기 포스트 분석<br>
-                        • 고객들이 실제로 고민하고 있는 문제점 파악<br>
-                        • 경쟁 제품에 대한 Reddit 사용자들의 솔직한 피드백 수집<br>
-                        • 브랜드별 서브레딧에서 주간/월간 인기 토픽 모니터링<br>
-                        • 계절별, 이벤트별 관심사 변화 추적
-                    </div>
-
-                    <div class="checklist-item">
-                        <h3>💡 컨텐츠 아이디어 발굴</h3>
-                        • "Reddit에서 화제가 된 이슈를 우리 제품으로 해결" 관점<br>
-                        • 사용자들의 실제 경험담과 우리 제품의 솔루션 연결<br>
-                        • 인플루언서가 Reddit 트렌드를 반영한 자연스러운 컨텐츠 제작<br>
-                        • 후킹 메시지와 실제 사용자 니즈의 매칭<br>
-                        • Before/After 스토리텔링 구조 기획
-                    </div>
-
-                    <div class="checklist-item">
-                        <h3>🎯 레버리지 전략</h3>
-                        • 바이럴 포스트의 핵심 메시지를 우리 브랜드 스토리에 적용<br>
-                        • Reddit 커뮤니티에서 검증된 니즈를 인플루언서 컨텐츠에 반영<br>
-                        • 실제 사용자 고민과 우리 제품의 차별점을 자연스럽게 연결<br>
-                        • Derma-approved 포지셔닝과 Reddit 화제의 결합<br>
-                        • 크로스 플랫폼 확산 전략 수립
-                    </div>
+                <div class="checklist-item">
+                    <h3>💡 컨텐츠 아이디어 발굴</h3>
+                    • "Reddit에서 화제가 된 이슈를 우리 제품으로 해결" 관점<br>
+                    • 사용자들의 실제 경험담과 우리 제품의 솔루션 연결<br>
+                    • 인플루언서가 Reddit 트렌드를 반영한 자연스러운 컨텐츠 제작<br>
+                    • 후킹 메시지와 실제 사용자 니즈의 매칭<br>
+                    • Before/After 스토리텔링 구조 기획
                 </div>
 
-                <div class="scoring-guide">
-                    <h3>📊 브랜드별 타겟 포지셔닝</h3>
-                    <strong>🍼 ATP (Baby Care):</strong> 아기용 제품 → 엄마들 타겟, 순한 성분 강조<br>
-                    <strong>💧 RB (Moisture/Hydration):</strong> 수분/보습 → 건조한 피부 고민 타겟<br>
-                    <strong>🏥 ZRD (Derma-approved):</strong> 피부과 추천 → 민감성/문제성 피부 타겟<br>
-                    <strong>🔑 공통 핵심:</strong> 모든 브랜드 = Derma-approved, 한국 피부과에서 사용
+                <div class="checklist-item">
+                    <h3>🎯 레버리지 전략</h3>
+                    • 바이럴 포스트의 핵심 메시지를 우리 브랜드 스토리에 적용<br>
+                    • Reddit 커뮤니티에서 검증된 니즈를 인플루언서 컨텐츠에 반영<br>
+                    • 실제 사용자 고민과 우리 제품의 차별점을 자연스럽게 연결<br>
+                    • Derma-approved 포지셔닝과 Reddit 화제의 결합<br>
+                    • 크로스 플랫폼 확산 전략 수립
+                </div>
+            </div>
+
+            <div class="scoring-guide">
+                <h3>📊 브랜드별 타겟 포지셔닝</h3>
+                <strong>🍼 ATP (Baby Care):</strong> 아기용 제품 → 엄마들 타겟, 순한 성분 강조<br>
+                <strong>💧 RB (Moisture/Hydration):</strong> 수분/보습 → 건조한 피부 고민 타겟<br>
+                <strong>🏥 ZRD (Derma-approved):</strong> 피부과 추천 → 민감성/문제성 피부 타겟<br>
+                <strong>🔑 공통 핵심:</strong> 모든 브랜드 = Derma-approved, 한국 피부과에서 사용
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 20px;">
+                <div class="outreach-strategy">
+                    <h3>🎯 주요 서브레딧</h3>
+
+                    <strong>🍼 ATP:</strong><br>
+                    • r/beyondthebump (400K)<br>
+                    • r/Mommit (200K)<br>
+                    • r/NewParents (150K)<br>
+                    • r/AsianBeauty (840K)<br><br>
+
+                    <strong>💧 RB:</strong><br>
+                    • r/SkincareAddiction (1.4M)<br>
+                    • r/AsianBeauty (840K)<br>
+                    • r/30PlusSkinCare (80K)<br>
+                    • r/DrySkinCare (15K)<br><br>
+
+                    <strong>🏥 ZRD:</strong><br>
+                    • r/SkincareAddiction (1.4M)<br>
+                    • r/AsianBeauty (840K)<br>
+                    • r/SebDerm (25K)<br>
+                    • r/Rosacea (40K)
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 20px;">
-                    <div class="outreach-strategy">
-                        <h3>🎯 주요 서브레딧</h3>
+                <div class="checklist-item">
+                    <h3>🎬 후킹 메시지</h3>
 
-                        <strong>🍼 ATP:</strong><br>
-                        • r/beyondthebump (400K)<br>
-                        • r/Mommit (200K)<br>
-                        • r/NewParents (150K)<br>
-                        • r/AsianBeauty (840K)<br><br>
+                    <strong>ATP:</strong><br>
+                    • "What Korean moms ACTUALLY use"<br>
+                    • "Korean moms ONLY trust this"<br>
+                    • "Korean hospitals actually use"<br><br>
 
-                        <strong>💧 RB:</strong><br>
-                        • r/SkincareAddiction (1.4M)<br>
-                        • r/AsianBeauty (840K)<br>
-                        • r/30PlusSkinCare (80K)<br>
-                        • r/DrySkinCare (15K)<br><br>
+                    <strong>RB:</strong><br>
+                    • "Korean women ACTUALLY use"<br>
+                    • "Korean skincare that ACTUALLY works"<br>
+                    • "Korean dermatologists recommend"<br><br>
 
-                        <strong>🏥 ZRD:</strong><br>
-                        • r/SkincareAddiction (1.4M)<br>
-                        • r/AsianBeauty (840K)<br>
-                        • r/SebDerm (25K)<br>
-                        • r/Rosacea (40K)
+                    <strong>ZRD:</strong><br>
+                    • "Korean doctors ACTUALLY recommend"<br>
+                    • "Korean hospitals ACTUALLY use"<br>
+                    • "Korean medical skincare"<br><br>
+
+                    <strong>🔥 핵심 키워드:</strong><br>
+                    ACTUALLY, ONLY, SECRET, Why [권위자] choose THIS
+                </div>
+
+                <div class="checklist-item">
+                    <h3>📱 바이럴 전략</h3>
+
+                    <strong>Reddit → 컨텐츠 연결:</strong><br>
+                    • Reddit: "What do Korean moms use?"<br>
+                    → 컨텐츠: "I asked my Korean mom..."<br><br>
+
+                    • Reddit: "Dermatologist vs expensive"<br>
+                    → 컨텐츠: "Korean dermatologist told me to stop..."<br><br>
+
+                    <strong>컨텐츠 구조:</strong><br>
+                    • 첫 3초: 강력한 후킹<br>
+                    • 중간: Reddit 검증된 니즈<br>
+                    • 마지막: Derma-approved 차별점<br>
+                    • CTA: "Korean moms know best"
+                </div>
+            </div>
+        </div>
+
+        <!-- 대응 전략 탭 -->
+        <div id="outreach" class="tab-content">
+            <h2>📧 인플루언서 대응 전략</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+                <div class="outreach-strategy">
+                    <h3>💌 차별화된 아웃리치 방법</h3>
+                    <strong>4단계 접근 전략:</strong><br>
+                    <strong>1단계:</strong> Instagram DM으로 관심 표현<br>
+                    <strong>2단계:</strong> 24시간 후 이메일로 상세 제안<br>
+                    <strong>3단계:</strong> 48시간 후 매니저 직접 컨택<br>
+                    <strong>4단계:</strong> 1주 후 다른 팀원이 follow-up<br><br>
+
+                    <strong>우선순위 매트릭스:</strong><br>
+                    • S급: 즉시 개인화된 접근<br>
+                    • A급: 24시간 내 컨택<br>
+                    • B급: 주간 단위 batch 컨택<br><br>
+
+                    <strong>3배수 법칙:</strong><br>
+                    목표 10명 협업 → 30명 컨택 필수<br>
+                    (예상 응답률 30% 고려)
+                </div>
+
+                <div class="outreach-strategy">
+                    <h3>💬 DM 컨택 전략</h3>
+                    <strong>첫 메시지 구조:</strong><br>
+                    1. 개인화된 인사 (최근 콘텐츠 언급)<br>
+                    2. 브랜드 간단 소개 (1줄)<br>
+                    3. 협업 관심 표현<br>
+                    4. 이메일 발송 허가 요청<br><br>
+
+                    <strong>DM 예시:</strong><br>
+                    "안녕하세요! [최근 콘텐츠 구체적 언급]을 보고 정말 감명받았어요. 저희 [브랜드명]에서 제안드리고 싶은 협업이 있어서 연락드렸습니다. 이메일로 자세한 내용 보내드려도
+                    될까요?"<br><br>
+
+                    <strong>DM 최적 타이밍:</strong><br>
+                    • 화-목요일 오전 10-11시<br>
+                    • 오후 2-3시<br>
+                    • 인플루언서 활동 시간대 고려
+                </div>
+
+                <div class="outreach-strategy">
+                    <h3>📧 이메일 컨택 전략</h3>
+                    <strong>이메일 주소 찾는 방법:</strong><br>
+                    • 인스타그램/틱톡 프로필 바이오 확인<br>
+                    • 링크트리나 비하이브 링크<br>
+                    • 유튜브 채널 About 페이지<br>
+                    • Hunter.io, Voila Norbert 툴 활용<br><br>
+
+                    <strong>제목 라인:</strong><br>
+                    "[브랜드명] × @[username] 특별 협업 제안 (10월 아마존 런칭)"<br><br>
+
+                    <strong>이메일 템플릿 구조:</strong><br>
+                    1. 개인화된 인사 (최근 콘텐츠 언급)<br>
+                    2. 브랜드 소개 (Derma-approved 강조)<br>
+                    3. 구체적 협업 제안 및 혜택<br>
+                    4. 포트폴리오/미디어킷 첨부<br>
+                    5. 명확한 Call-to-Action
+                </div>
+            </div>
+        </div>
+
+        <!-- Buy Box 확보 방안 탭 -->
+        <div id="buybox" class="tab-content">
+            <h2>🛒 Amazon Buy Box 확보 완전 가이드</h2>
+
+            <div class="critical-insight">
+                <strong>핵심 문제:</strong> 브랜드 오너임에도 불구하고 불법 리셀러가 Buy Box 탈취<br>
+                우리가 상세페이지 운영하고 리스팅 권한 있어도 알고리즘이 다른 판매자를 선택하는 상황
+            </div>
+
+            <div class="key-facts">
+                <h3>Buy Box 작동 원리 (2025년 기준)</h3>
+                <strong>Amazon의 철학:</strong> 브랜드 오너에게 특별한 우선권 없음<br>
+                Buy Box는 "고객에게 가장 좋은 딜"을 제공하는 판매자에게 부여<br><br>
+
+                <strong>2025년 알고리즘 주요 변화:</strong><br>
+                • 가격 "공정성 임계값" 강화 - 5% 이내 가격 경쟁<br>
+                • 빠른 지역 배송 우대 (1-2일 배송)<br>
+                • 관세 인상으로 인한 가격 조정 시 Buy Box 탈취 위험<br>
+                • MAP 정책 강화 브랜드에 대한 내부팀 지원 확대
+            </div>
+
+            <div class="event-comparison">
+                <h3>불법 리셀러의 재고 확보 경로</h3>
+                <div class="cost-breakdown">
+                    <div class="cost-card">
+                        <h4>🔄 회색시장 (Gray Market)</h4>
+                        <strong>경로:</strong> 청산업체, 잉여재고업체<br>
+                        <strong>특징:</strong> 정품이지만 승인되지 않은 유통경로<br>
+                        <strong>대응:</strong> 유통업체 계약 재검토 필수
                     </div>
-
-                    <div class="checklist-item">
-                        <h3>🎬 후킹 메시지</h3>
-
-                        <strong>ATP:</strong><br>
-                        • "What Korean moms ACTUALLY use"<br>
-                        • "Korean moms ONLY trust this"<br>
-                        • "Korean hospitals actually use"<br><br>
-
-                        <strong>RB:</strong><br>
-                        • "Korean women ACTUALLY use"<br>
-                        • "Korean skincare that ACTUALLY works"<br>
-                        • "Korean dermatologists recommend"<br><br>
-
-                        <strong>ZRD:</strong><br>
-                        • "Korean doctors ACTUALLY recommend"<br>
-                        • "Korean hospitals ACTUALLY use"<br>
-                        • "Korean medical skincare"<br><br>
-
-                        <strong>🔥 핵심 키워드:</strong><br>
-                        ACTUALLY, ONLY, SECRET, Why [권위자] choose THIS
+                    <div class="cost-card">
+                        <h4>🏪 리테일 아비트라지</h4>
+                        <strong>경로:</strong> 코스트코, 월마트 등에서 할인 구매<br>
+                        <strong>특징:</strong> 합법적 구매 후 재판매<br>
+                        <strong>대응:</strong> 구매 제한 설정, 유통업체 협력
                     </div>
-
-                    <div class="checklist-item">
-                        <h3>📱 바이럴 전략</h3>
-
-                        <strong>Reddit → 컨텐츠 연결:</strong><br>
-                        • Reddit: "What do Korean moms use?"<br>
-                        → 컨텐츠: "I asked my Korean mom..."<br><br>
-
-                        • Reddit: "Dermatologist vs expensive"<br>
-                        → 컨텐츠: "Korean dermatologist told me to stop..."<br><br>
-
-                        <strong>컨텐츠 구조:</strong><br>
-                        • 첫 3초: 강력한 후킹<br>
-                        • 중간: Reddit 검증된 니즈<br>
-                        • 마지막: Derma-approved 차별점<br>
-                        • CTA: "Korean moms know best"
+                    <div class="cost-card">
+                        <h4>📦 승인되지 않은 유통업체</h4>
+                        <strong>경로:</strong> 뒷문 거래, 과재고 처리<br>
+                        <strong>특징:</strong> 기존 유통업체의 계약 위반<br>
+                        <strong>대응:</strong> 유통계약 강화, 추적 시스템
                     </div>
                 </div>
             </div>
 
-            <!-- 대응 전략 탭 -->
-            <div id="outreach" class="tab-content">
-                <h2>📧 인플루언서 대응 전략</h2>
+            <div class="hypothesis-box">
+                <h3>💡 Amazon이 이를 허용하는 이유</h3>
+                <strong>Amazon의 입장:</strong><br>
+                • 누가 판매하든 수수료 수익은 동일<br>
+                • 가격 경쟁을 통한 고객 만족도 향상<br>
+                • 판매자 간 경쟁으로 플랫폼 활성화<br><br>
+
+                <strong>대행사 말이 맞는 이유:</strong><br>
+                Amazon은 제조업체-소매업체 분쟁에서 중립 입장 유지<br>
+                단순 MAP 위반으로는 개입하지 않음<br><br>
+
+                <strong>하지만 예외가 있습니다:</strong><br>
+                지적재산권 침해가 있다면 Amazon이 적극 개입
+            </div>
+
+            <div class="strategy-table">
+                <h3>📋 단계별 해결 전략</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>단계</th>
+                            <th>방법</th>
+                            <th>예상 효과</th>
+                            <th>소요 시간</th>
+                            <th>우선순위</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1단계</strong></td>
+                            <td>Amazon Brand Registry 등록</td>
+                            <td>기본 보호 기능 활성화</td>
+                            <td>2-3주</td>
+                            <td>🔥 최우선</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2단계</strong></td>
+                            <td>Brand Gating 신청</td>
+                            <td>신규 불법 판매자 차단</td>
+                            <td>3-5주</td>
+                            <td>🔥 필수</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3단계</strong></td>
+                            <td>독점 보증 정책 수립</td>
+                            <td>법적 근거 마련</td>
+                            <td>1-2주</td>
+                            <td>⭐ 중요</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4단계</strong></td>
+                            <td>유통계약 재정비</td>
+                            <td>재고 유출 차단</td>
+                            <td>4-6주</td>
+                            <td>⭐ 중요</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5단계</strong></td>
+                            <td>법적 조치</td>
+                            <td>강력한 제재</td>
+                            <td>2-6개월</td>
+                            <td>조건부</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="verification-box">
+                <h3>🛡️ Amazon Brand Registry & Brand Gating</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h4>Brand Registry 혜택</h4>
+                        <strong>즉시 가능한 것들:</strong><br>
+                        • A+ Content 제작 권한<br>
+                        • Report a Violation 도구 사용<br>
+                        • 자동 위조품 탐지 시스템<br>
+                        • 상세페이지 완전 통제<br>
+                        • Project Zero 활용 (직접 제거)<br><br>
+
+                        <strong>필요 조건:</strong><br>
+                        • 등록된 상표권 필수<br>
+                        • 무료 프로그램<br>
+                        • 2-3주 승인 시간
+                    </div>
+
+                    <div>
+                        <h4>Brand Gating 강력 효과</h4>
+                        <strong>작동 방식:</strong><br>
+                        • 신규 판매자가 우리 제품 등록 시도<br>
+                        • 자동으로 승인 요청 화면 표시<br>
+                        • 증빙서류 제출 못하면 등록 차단<br><br>
+
+                        <strong>비용 구조:</strong><br>
+                        • 신청비용: 무료<br>
+                        • 불법 판매자가 우리에게 지불: $1,500<br>
+                        • 기존 판매자는 별도 제거 필요<br>
+                        • 3-5주 승인 시간
+                    </div>
+                </div>
+            </div>
+
+            <div class="realistic-calculation">
+                <h3>⚖️ 법적 조치 방안</h3>
+
+                <strong>1. 독점 보증 정책 (가장 효과적)</strong><br>
+                • 승인된 판매자에게만 보증 제공<br>
+                • 불법 판매자 제품은 보증 제외<br>
+                • 고객 혼란 = 상표권 침해 성립<br>
+                • 법적 근거 가장 강함<br><br>
+
+                <strong>2. Cease and Desist (중단명령서)</strong><br>
+                • 즉시 실행 가능<br>
+                • 대부분의 소규모 리셀러 효과적<br>
+                • 비용 부담 적음<br>
+                • 재발 시 법적 조치 근거<br><br>
+
+                <strong>3. 상표권 침해 소송</strong><br>
+                • 최후 수단<br>
+                • 반복적 대형 위반자 대상<br>
+                • 높은 비용과 시간 소요<br>
+                • 강력한 억제 효과
+            </div>
+
+            <div class="warning-box">
+                <h3>⚠️ 현실적 한계와 대응</h3>
+
+                <strong>Amazon의 한계:</strong><br>
+                • 단순 가격 경쟁에는 개입 안 함<br>
+                • 기존 불법 판매자 자동 제거 안 됨<br>
+                • Whack-a-mole 현상 (제거해도 다시 생성)<br><br>
+
+                <strong>장기적 접근 필요:</strong><br>
+                • Brand Gating으로 신규 차단<br>
+                • 기존 판매자는 개별 대응<br>
+                • 공급망 통제로 근본 해결<br>
+                • 지속적 모니터링 시스템
+            </div>
+
+            <div class="action-grid">
+                <div class="action-card">
+                    <h4>즉시 실행 (1-2주)</h4>
+                    <strong>1. Brand Registry 신청</strong><br>
+                    • 상표권 준비<br>
+                    • 신청서 작성<br>
+                    • 승인 대기<br><br>
+
+                    <strong>2. 현재 불법 판매자 조사</strong><br>
+                    • 3개 제품 Buy Box 현황<br>
+                    • 판매자 신원 파악<br>
+                    • 재고 출처 추적
+                </div>
+
+                <div class="action-card">
+                    <h4>단기 대응 (1-2개월)</h4>
+                    <strong>1. Brand Gating 신청</strong><br>
+                    • 핵심 제품부터 우선<br>
+                    • 위조품 증거 수집<br>
+                    • Amazon 담당자 컨택<br><br>
+
+                    <strong>2. 독점 보증 정책</strong><br>
+                    • 법적 검토<br>
+                    • 정책 문서화<br>
+                    • 웹사이트 게시
+                </div>
+
+                <div class="action-card">
+                    <h4>장기 전략 (3-6개월)</h4>
+                    <strong>1. 공급망 재정비</strong><br>
+                    • 유통계약서 수정<br>
+                    • 재판매 금지 조항<br>
+                    • 추적 시스템 도입<br><br>
+
+                    <strong>2. 법적 체계 구축</strong><br>
+                    • 전문 변호사 선임<br>
+                    • 소송 준비<br>
+                    • 강력한 억제 효과
+                </div>
+            </div>
+
+            <div class="conclusion-box">
+                <h3>🎯 성공 전략 요약</h3>
+
+                <strong>단기 목표:</strong> Brand Registry + Brand Gating으로 신규 차단<br>
+                <strong>중기 목표:</strong> 독점 보증 + 법적 조치로 기존 제거<br>
+                <strong>장기 목표:</strong> 공급망 통제로 근본 해결<br><br>
+
+                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <strong>핵심 메시지:</strong><br>
+                    아마존 대행사 말처럼 "어쩔 수 없다"는 것은 절반만 맞습니다.<br>
+                    체계적 접근으로 상당한 개선이 가능하며, 특히 Brand Gating은<br>
+                    불법 리셀러에게 $1,500 진입 장벽을 만들어 효과적입니다.
+                </div>
+            </div>
+
+            <div class="fact-table">
+                <h3>📊 Buy Box 확보 체크리스트</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>현재 상태</th>
+                            <th>목표</th>
+                            <th>예상 효과</th>
+                            <th>마감</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Brand Registry 등록</td>
+                            <td>❌ 미완료</td>
+                            <td>✅ 등록 완료</td>
+                            <td>기본 보호 도구 확보</td>
+                            <td>9월 15일</td>
+                        </tr>
+                        <tr>
+                            <td>상표권 준비</td>
+                            <td>❓ 확인 필요</td>
+                            <td>✅ 준비 완료</td>
+                            <td>Brand Registry 신청 가능</td>
+                            <td>9월 10일</td>
+                        </tr>
+                        <tr>
+                            <td>불법 판매자 목록 작성</td>
+                            <td>❌ 미완료</td>
+                            <td>✅ 3개 제품별 조사</td>
+                            <td>타겟 명확화</td>
+                            <td>9월 5일</td>
+                        </tr>
+                        <tr>
+                            <td>독점 보증 정책 수립</td>
+                            <td>❌ 미완료</td>
+                            <td>✅ 정책 문서화</td>
+                            <td>법적 근거 마련</td>
+                            <td>10월 1일</td>
+                        </tr>
+                        <tr>
+                            <td>Brand Gating 신청</td>
+                            <td>❌ 미완료</td>
+                            <td>✅ 신청 완료</td>
+                            <td>신규 불법 판매자 차단</td>
+                            <td>10월 15일</td>
+                        </tr>
+                        <tr>
+                            <td>유통계약 재검토</td>
+                            <td>❌ 미완료</td>
+                            <td>✅ 계약서 수정</td>
+                            <td>재고 유출 근본 차단</td>
+                            <td>11월 1일</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="session-analysis">
+                <h3>🎯 브랜드별 맞춤 전략</h3>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
-                    <div class="outreach-strategy">
-                        <h3>💌 차별화된 아웃리치 방법</h3>
-                        <strong>4단계 접근 전략:</strong><br>
-                        <strong>1단계:</strong> Instagram DM으로 관심 표현<br>
-                        <strong>2단계:</strong> 24시간 후 이메일로 상세 제안<br>
-                        <strong>3단계:</strong> 48시간 후 매니저 직접 컨택<br>
-                        <strong>4단계:</strong> 1주 후 다른 팀원이 follow-up<br><br>
-
-                        <strong>우선순위 매트릭스:</strong><br>
-                        • S급: 즉시 개인화된 접근<br>
-                        • A급: 24시간 내 컨택<br>
-                        • B급: 주간 단위 batch 컨택<br><br>
-
-                        <strong>3배수 법칙:</strong><br>
-                        목표 10명 협업 → 30명 컨택 필수<br>
-                        (예상 응답률 30% 고려)
+                    <div class="metric">
+                        <div class="metric-value">ATP</div>
+                        <div class="metric-label">Baby Care</div>
+                        <div style="margin-top: 10px; font-size: 12px; line-height: 1.4;">
+                            <strong>특화 전략:</strong><br>
+                            • 의료진 추천 강조<br>
+                            • 안전성 인증 부각<br>
+                            • 엄마들 커뮤니티 활용<br>
+                            • 소아과 검증 마케팅
+                        </div>
                     </div>
 
-                    <div class="outreach-strategy">
-                        <h3>💬 DM 컨택 전략</h3>
-                        <strong>첫 메시지 구조:</strong><br>
-                        1. 개인화된 인사 (최근 콘텐츠 언급)<br>
-                        2. 브랜드 간단 소개 (1줄)<br>
-                        3. 협업 관심 표현<br>
-                        4. 이메일 발송 허가 요청<br><br>
-
-                        <strong>DM 예시:</strong><br>
-                        "안녕하세요! [최근 콘텐츠 구체적 언급]을 보고 정말 감명받았어요. 저희 [브랜드명]에서 제안드리고 싶은 협업이 있어서 연락드렸습니다. 이메일로 자세한 내용 보내드려도
-                        될까요?"<br><br>
-
-                        <strong>DM 최적 타이밍:</strong><br>
-                        • 화-목요일 오전 10-11시<br>
-                        • 오후 2-3시<br>
-                        • 인플루언서 활동 시간대 고려
+                    <div class="metric">
+                        <div class="metric-value">RB</div>
+                        <div class="metric-label">Moisture Line</div>
+                        <div style="margin-top: 10px; font-size: 12px; line-height: 1.4;">
+                            <strong>특화 전략:</strong><br>
+                            • 성분 차별화 강조<br>
+                            • 전후 비교 콘텐츠<br>
+                            • 건조 피부 타겟팅<br>
+                            • 계절별 니즈 매칭
+                        </div>
                     </div>
 
-                    <div class="outreach-strategy">
-                        <h3>📧 이메일 컨택 전략</h3>
-                        <strong>이메일 주소 찾는 방법:</strong><br>
-                        • 인스타그램/틱톡 프로필 바이오 확인<br>
-                        • 링크트리나 비하이브 링크<br>
-                        • 유튜브 채널 About 페이지<br>
-                        • Hunter.io, Voila Norbert 툴 활용<br><br>
-
-                        <strong>제목 라인:</strong><br>
-                        "[브랜드명] × @[username] 특별 협업 제안 (10월 아마존 런칭)"<br><br>
-
-                        <strong>이메일 템플릿 구조:</strong><br>
-                        1. 개인화된 인사 (최근 콘텐츠 언급)<br>
-                        2. 브랜드 소개 (Derma-approved 강조)<br>
-                        3. 구체적 협업 제안 및 혜택<br>
-                        4. 포트폴리오/미디어킷 첨부<br>
-                        5. 명확한 Call-to-Action
+                    <div class="metric">
+                        <div class="metric-value">ZRD</div>
+                        <div class="metric-label">Derma Line</div>
+                        <div style="margin-top: 10px; font-size: 12px; line-height: 1.4;">
+                            <strong>특화 전략:</strong><br>
+                            • 피부과 추천 인증<br>
+                            • 민감 피부 솔루션<br>
+                            • 의료진 인플루언서<br>
+                            • 문제성 피부 케어
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 당장 할 일 탭 -->
-            <div id="tasks" class="tab-content">
-                <h2>🚨 당장 할 일 (스프린트 플랜 기반)</h2>
+            <div class="finding">
+                <h3>💪 Buy Box 경쟁력 강화 방안</h3>
 
-                <div class="immediate-tasks">
-                    <div class="task-day">
-                        <h3>📅 Day 1 (9월 1일 월요일)</h3>
-                        <strong>오전:</strong><br>
-                        ✅ 이 템플릿을 팀원들과 공유 (HTML 파일)<br>
-                        ✅ 팀 미팅 30분 (역할 분담 확정 - 유진님 50명, 희경님 25명, 연주님 25명)<br>
-                        ✅ 경쟁사 3개 브랜드 최근 협업 인플루언서 각자 5명씩 찾기<br><br>
+                <strong>알고리즘 최적화:</strong><br>
+                • FBA 사용으로 배송 우위 확보<br>
+                • 가격을 최저가 대비 5% 이내 유지<br>
+                • 재고 소진율 0% 유지 (품절 절대 금지)<br>
+                • Order Defect Rate 1% 이하 관리<br><br>
 
-                        <strong>오후:</strong><br>
-                        ✅ 각자 첫 10명 인플루언서 리스팅 시작<br>
-                        ✅ 팔로워 수, 참여율, 브랜드 매칭 우선 체크
-                    </div>
+                <strong>PPC 전략 연계:</strong><br>
+                • 외부 트래픽 (인플루언서) → Amazon 알고리즘 학습<br>
+                • 학습된 알고리즘 → PPC 효율 자동 향상<br>
+                • 높은 전환율 → Buy Box 우선순위 상승<br><br>
 
-                    <div class="task-day">
-                        <h3>📅 Day 2-5 (9월 2일-5일)</h3>
-                        ✅ <strong>김유진:</strong> 하루 10명씩 리스팅 (총 50명)<br>
-                        ✅ <strong>신희경:</strong> 하루 5명씩 리스팅 (총 25명)<br>
-                        ✅ <strong>최연주:</strong> 하루 5명 + 경쟁사 분석 1개<br>
-                        ✅ 매일 오후 3시 10분 체크인 미팅
-                    </div>
-                </div>
+                <strong>브랜드 차별화:</strong><br>
+                • Derma-approved 포지셔닝 강화<br>
+                • 한국 의료진 추천 마케팅<br>
+                • 정품 인증 시스템 (QR코드)<br>
+                • 독점 보증으로 법적 차별점 생성
             </div>
 
-            <!-- 다른 탭들도 기존 내용 그대로 유지 -->
+            <div class="critical-insight">
+                <h3>🚀 즉시 실행 Action Plan</h3>
+
+                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
+                    <strong>이번 주 (9월 1일-5일):</strong><br>
+                    ✅ 상표권 현황 확인 및 Brand Registry 신청 준비<br>
+                    ✅ 현재 Buy Box 탈취한 불법 판매자 3명 신원 조사<br>
+                    ✅ 유통업체별 계약서 및 재고 흐름 점검<br><br>
+
+                    <strong>다음 주 (9월 8일-12일):</strong><br>
+                    ✅ Brand Registry 신청 완료<br>
+                    ✅ 불법 판매자에게 Cease and Desist 발송<br>
+                    ✅ 독점 보증 정책 초안 작성<br><br>
+
+                    <strong>목표:</strong><br>
+                    10월 아마존 빅이벤트까지 주요 제품 Buy Box 80% 이상 확보
+                </div>
+            </div>
         </div>
 
 
-        <!-- Firebase SDK -->
-        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+        <!-- 당장 할 일 탭 -->
+        <div id="tasks" class="tab-content">
+            <h2>🚨 당장 할 일 (스프린트 플랜 기반)</h2>
 
-        <script>
-            // ⚠️ 여기에 Firebase 설정을 넣으세요 (Step 4에서 설명)
-            const firebaseConfig = {
-                apiKey: "AIzaSyBQ8Y-YixAjJscZ8s4_eFMjVbtxZpD1Mko",
-                authDomain: "influencer-seeding-8b702.firebaseapp.com",
-                databaseURL: "https://influencer-seeding-8b702-default-rtdb.asia-southeast1.firebasedatabase.app",
-                projectId: "influencer-seeding-8b702",
-                storageBucket: "influencer-seeding-8b702.firebasestorage.app",
-                messagingSenderId: "730517045041",
-                appId: "1:730517045041:web:0524c5f5157f9e42dcba10"
-            };
+            <div class="immediate-tasks">
+                <div class="task-day">
+                    <h3>📅 Day 1 (9월 1일 월요일)</h3>
+                    <strong>오전:</strong><br>
+                    ✅ 이 템플릿을 팀원들과 공유 (HTML 파일)<br>
+                    ✅ 팀 미팅 30분 (역할 분담 확정 - 유진님 50명, 희경님 25명, 연주님 25명)<br>
+                    ✅ 경쟁사 3개 브랜드 최근 협업 인플루언서 각자 5명씩 찾기<br><br>
 
-            // Firebase 초기화
-            firebase.initializeApp(firebaseConfig);
-            const database = firebase.database();
-            const influencersRef = database.ref('influencers');
+                    <strong>오후:</strong><br>
+                    ✅ 각자 첫 10명 인플루언서 리스팅 시작<br>
+                    ✅ 팔로워 수, 참여율, 브랜드 매칭 우선 체크
+                </div>
 
-            let influencers = [];
-            let rowCount = 0;
+                <div class="task-day">
+                    <h3>📅 Day 2-5 (9월 2일-5일)</h3>
+                    ✅ <strong>김유진:</strong> 하루 10명씩 리스팅 (총 50명)<br>
+                    ✅ <strong>신희경:</strong> 하루 5명씩 리스팅 (총 25명)<br>
+                    ✅ <strong>최연주:</strong> 하루 5명 + 경쟁사 분석 1개<br>
+                    ✅ 매일 오후 3시 10분 체크인 미팅
+                </div>
+            </div>
+        </div>
 
-            // Firebase 연결 상태 확인
-            database.ref('.info/connected').on('value', function (snapshot) {
-                const status = document.getElementById('firebaseStatus');
-                if (snapshot.val() === true) {
-                    status.innerHTML = '✅ Firebase 연결됨 - 실시간 동기화 활성';
-                    status.className = 'firebase-status';
-                } else {
-                    status.innerHTML = '❌ Firebase 연결 끊어짐';
-                    status.className = 'firebase-error';
-                }
-            });
+        <!-- 다른 탭들도 기존 내용 그대로 유지 -->
+    </div>
 
-            // 데이터 로드
-            influencersRef.on('value', function (snapshot) {
-                const data = snapshot.val();
-                influencers = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
-                renderTable();
-                updateStats();
-            });
 
-            function renderTable() {
-                const tableBody = document.getElementById('tableBody');
-                tableBody.innerHTML = '';
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
-                influencers.forEach((influencer, index) => {
-                    const row = tableBody.insertRow();
-                    row.innerHTML = `
+    <script>
+        // ⚠️ 여기에 Firebase 설정을 넣으세요 (Step 4에서 설명)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBQ8Y-YixAjJscZ8s4_eFMjVbtxZpD1Mko",
+            authDomain: "influencer-seeding-8b702.firebaseapp.com",
+            databaseURL: "https://influencer-seeding-8b702-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "influencer-seeding-8b702",
+            storageBucket: "influencer-seeding-8b702.firebasestorage.app",
+            messagingSenderId: "730517045041",
+            appId: "1:730517045041:web:0524c5f5157f9e42dcba10"
+        };
+
+        // Firebase 초기화
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+        const influencersRef = database.ref('influencers');
+
+        let influencers = [];
+        let rowCount = 0;
+
+        // Firebase 연결 상태 확인
+        database.ref('.info/connected').on('value', function (snapshot) {
+            const status = document.getElementById('firebaseStatus');
+            if (snapshot.val() === true) {
+                status.innerHTML = '✅ Firebase 연결됨 - 실시간 동기화 활성';
+                status.className = 'firebase-status';
+            } else {
+                status.innerHTML = '❌ Firebase 연결 끊어짐';
+                status.className = 'firebase-error';
+            }
+        });
+
+        // 데이터 로드
+        influencersRef.on('value', function (snapshot) {
+            const data = snapshot.val();
+            influencers = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
+            renderTable();
+            updateStats();
+        });
+
+        function renderTable() {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+
+            influencers.forEach((influencer, index) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
                     <td>${index + 1}</td>
                     <td>
     ${influencer.profileUrl ?
-                            `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
-                            `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
-                        }
+                        `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
+                        `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
+                    }
 </td>
                     <td>
                         <select onchange="updatePlatformAndUrl('${influencer.id}', this.value)">
@@ -1997,217 +2539,217 @@
                     <td><input type="text" value="${influencer.budget || ''}" onchange="updateInfluencer('${influencer.id}', 'budget', this.value)" style="width:80px;"></td>
                     <td><button class="delete-btn" onclick="deleteInfluencer('${influencer.id}')">삭제</button></td>
                 `;
-                });
+            });
+        }
+
+        function addInfluencer() {
+            const newInfluencer = {
+                name: '',
+                platform: 'Instagram',
+                brand: '미정',
+                followers: '',
+                views: '',
+                comments: '',
+                buyingPower: 0,
+                trust: 0,
+                community: 0,
+                targetMatch: 0,
+                realUse: 0,
+                reddit: 0,
+                assignee: '미정',
+                status: '대기중',
+                budget: '',
+                selected: false
+            };
+
+            influencersRef.push(newInfluencer);
+        }
+
+        function deleteInfluencer(id) {
+            if (confirm('정말로 삭제하시겠습니까?')) {
+                influencersRef.child(id).remove();
             }
+        }
 
-            function addInfluencer() {
-                const newInfluencer = {
-                    name: '',
-                    platform: 'Instagram',
-                    brand: '미정',
-                    followers: '',
-                    views: '',
-                    comments: '',
-                    buyingPower: 0,
-                    trust: 0,
-                    community: 0,
-                    targetMatch: 0,
-                    realUse: 0,
-                    reddit: 0,
-                    assignee: '미정',
-                    status: '대기중',
-                    budget: '',
-                    selected: false
-                };
+        function updateInfluencer(id, field, value) {
+            influencersRef.child(id).update({ [field]: value });
+        }
 
-                influencersRef.push(newInfluencer);
-            }
+        function updateScore(id, field, value) {
+            influencersRef.child(id).update({ [field]: parseInt(value) || 0 });
+        }
 
-            function deleteInfluencer(id) {
-                if (confirm('정말로 삭제하시겠습니까?')) {
-                    influencersRef.child(id).remove();
+        function calculateTotal(influencer) {
+            return (parseInt(influencer.buyingPower) || 0) +
+                (parseInt(influencer.trust) || 0) +
+                (parseInt(influencer.community) || 0) +
+                (parseInt(influencer.targetMatch) || 0) +
+                (parseInt(influencer.realUse) || 0);
+        }
+
+        function getGrade(total) {
+            if (total >= 80) return 'S';
+            if (total >= 70) return 'A';
+            if (total >= 55) return 'B';
+            if (total >= 35) return 'C';
+            return 'D';
+        }
+
+        function getGradeClass(total) {
+            if (total >= 80) return 'priority-s';
+            if (total >= 70) return 'priority-a';
+            if (total >= 55) return 'priority-b';
+            if (total >= 35) return 'priority-c';
+            return 'priority-d';
+        }
+
+        function updateStats() {
+            const totalCandidates = influencers.length;
+            let aPriority = 0;
+            let contacted = 0;
+            let responded = 0;
+
+            influencers.forEach(influencer => {
+                const total = calculateTotal(influencer);
+                if (total >= 80) aPriority++;
+
+                if (influencer.status === '연락완료' || influencer.status === '답장받음') contacted++;
+                if (influencer.status === '답장받음') responded++;
+            });
+
+            document.getElementById('totalCandidates').textContent = totalCandidates;
+            document.getElementById('aPriority').textContent = aPriority;
+            document.getElementById('contacted').textContent = contacted;
+            document.getElementById('responded').textContent = responded;
+        }
+
+        function handleNameEnter(event, id) {
+            if (event.key === 'Enter') {
+                const inputValue = event.target.value.trim();
+                if (inputValue) {
+                    convertToLink(id, inputValue);
                 }
             }
+        }
 
-            function updateInfluencer(id, field, value) {
-                influencersRef.child(id).update({ [field]: value });
+        function convertToLink(id, username) {
+            const influencer = influencers.find(inf => inf.id === id);
+            if (!influencer) return;
+
+            const platform = influencer.platform || 'Instagram';
+            let cleanUsername = username;
+            let profileUrl = '';
+
+            if (platform === 'Instagram') {
+                cleanUsername = username.replace('@', '');
+                profileUrl = `https://www.instagram.com/${cleanUsername}/`;
+            } else if (platform === 'TikTok') {
+                if (!username.startsWith('@')) {
+                    cleanUsername = '@' + username;
+                }
+                profileUrl = `https://www.tiktok.com/${cleanUsername}`;
             }
 
-            function updateScore(id, field, value) {
-                influencersRef.child(id).update({ [field]: parseInt(value) || 0 });
-            }
+            influencersRef.child(id).update({
+                name: username,
+                profileUrl: profileUrl
+            });
+        }
 
-            function calculateTotal(influencer) {
-                return (parseInt(influencer.buyingPower) || 0) +
-                    (parseInt(influencer.trust) || 0) +
-                    (parseInt(influencer.community) || 0) +
-                    (parseInt(influencer.targetMatch) || 0) +
-                    (parseInt(influencer.realUse) || 0);
-            }
+        function editName(id) {
+            influencersRef.child(id).update({
+                profileUrl: null
+            });
+        }
 
-            function getGrade(total) {
-                if (total >= 80) return 'S';
-                if (total >= 70) return 'A';
-                if (total >= 55) return 'B';
-                if (total >= 35) return 'C';
-                return 'D';
-            }
+        function updatePlatformAndUrl(id, newPlatform) {
+            const influencer = influencers.find(inf => inf.id === id);
+            if (!influencer) return;
 
-            function getGradeClass(total) {
-                if (total >= 80) return 'priority-s';
-                if (total >= 70) return 'priority-a';
-                if (total >= 55) return 'priority-b';
-                if (total >= 35) return 'priority-c';
-                return 'priority-d';
-            }
+            // 플랫폼 업데이트
+            influencersRef.child(id).update({ platform: newPlatform });
 
-            function updateStats() {
-                const totalCandidates = influencers.length;
-                let aPriority = 0;
-                let contacted = 0;
-                let responded = 0;
+            // 이미 링크가 있다면 새 플랫폼에 맞게 URL 변경
+            if (influencer.profileUrl && influencer.name) {
+                let cleanUsername = influencer.name;
+                let newProfileUrl = '';
 
-                influencers.forEach(influencer => {
-                    const total = calculateTotal(influencer);
-                    if (total >= 80) aPriority++;
-
-                    if (influencer.status === '연락완료' || influencer.status === '답장받음') contacted++;
-                    if (influencer.status === '답장받음') responded++;
-                });
-
-                document.getElementById('totalCandidates').textContent = totalCandidates;
-                document.getElementById('aPriority').textContent = aPriority;
-                document.getElementById('contacted').textContent = contacted;
-                document.getElementById('responded').textContent = responded;
-            }
-
-            function handleNameEnter(event, id) {
-                if (event.key === 'Enter') {
-                    const inputValue = event.target.value.trim();
-                    if (inputValue) {
-                        convertToLink(id, inputValue);
+                if (newPlatform === 'Instagram') {
+                    cleanUsername = influencer.name.replace('@', '');
+                    newProfileUrl = `https://www.instagram.com/${cleanUsername}/`;
+                } else if (newPlatform === 'TikTok') {
+                    if (!influencer.name.startsWith('@')) {
+                        cleanUsername = '@' + influencer.name;
                     }
-                }
-            }
-
-            function convertToLink(id, username) {
-                const influencer = influencers.find(inf => inf.id === id);
-                if (!influencer) return;
-
-                const platform = influencer.platform || 'Instagram';
-                let cleanUsername = username;
-                let profileUrl = '';
-
-                if (platform === 'Instagram') {
-                    cleanUsername = username.replace('@', '');
-                    profileUrl = `https://www.instagram.com/${cleanUsername}/`;
-                } else if (platform === 'TikTok') {
-                    if (!username.startsWith('@')) {
-                        cleanUsername = '@' + username;
-                    }
-                    profileUrl = `https://www.tiktok.com/${cleanUsername}`;
+                    newProfileUrl = `https://www.tiktok.com/${cleanUsername}`;
                 }
 
+                // 새 URL로 업데이트
                 influencersRef.child(id).update({
-                    name: username,
-                    profileUrl: profileUrl
+                    name: cleanUsername,
+                    profileUrl: newProfileUrl
                 });
             }
+        }
 
-            function editName(id) {
-                influencersRef.child(id).update({
-                    profileUrl: null
-                });
+        function sortTable() {
+            const sortValue = document.getElementById('sortFilter').value;
+            if (!sortValue) {
+                renderTable(); // Reset to original order
+                return;
             }
 
-            function updatePlatformAndUrl(id, newPlatform) {
-                const influencer = influencers.find(inf => inf.id === id);
-                if (!influencer) return;
+            let sortedInfluencers = [...influencers];
 
-                // 플랫폼 업데이트
-                influencersRef.child(id).update({ platform: newPlatform });
-
-                // 이미 링크가 있다면 새 플랫폼에 맞게 URL 변경
-                if (influencer.profileUrl && influencer.name) {
-                    let cleanUsername = influencer.name;
-                    let newProfileUrl = '';
-
-                    if (newPlatform === 'Instagram') {
-                        cleanUsername = influencer.name.replace('@', '');
-                        newProfileUrl = `https://www.instagram.com/${cleanUsername}/`;
-                    } else if (newPlatform === 'TikTok') {
-                        if (!influencer.name.startsWith('@')) {
-                            cleanUsername = '@' + influencer.name;
-                        }
-                        newProfileUrl = `https://www.tiktok.com/${cleanUsername}`;
-                    }
-
-                    // 새 URL로 업데이트
-                    influencersRef.child(id).update({
-                        name: cleanUsername,
-                        profileUrl: newProfileUrl
+            switch (sortValue) {
+                case 'grade-high':
+                    sortedInfluencers.sort((a, b) => {
+                        const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
+                        return gradeOrder[getGrade(calculateTotal(b))] - gradeOrder[getGrade(calculateTotal(a))];
                     });
-                }
+                    break;
+                case 'grade-low':
+                    sortedInfluencers.sort((a, b) => {
+                        const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
+                        return gradeOrder[getGrade(calculateTotal(a))] - gradeOrder[getGrade(calculateTotal(b))];
+                    });
+                    break;
+                case 'total-high':
+                    sortedInfluencers.sort((a, b) => calculateTotal(b) - calculateTotal(a));
+                    break;
+                case 'total-low':
+                    sortedInfluencers.sort((a, b) => calculateTotal(a) - calculateTotal(b));
+                    break;
+                case 'platform':
+                    sortedInfluencers.sort((a, b) => (a.platform || 'Instagram').localeCompare(b.platform || 'Instagram'));
+                    break;
+                case 'brand':
+                    sortedInfluencers.sort((a, b) => (a.brand || '미정').localeCompare(b.brand || '미정'));
+                    break;
+                case 'assignee':
+                    sortedInfluencers.sort((a, b) => (a.assignee || '미정').localeCompare(b.assignee || '미정'));
+                    break;
+                case 'status':
+                    sortedInfluencers.sort((a, b) => (a.status || '대기중').localeCompare(b.status || '대기중'));
+                    break;
             }
 
-            function sortTable() {
-                const sortValue = document.getElementById('sortFilter').value;
-                if (!sortValue) {
-                    renderTable(); // Reset to original order
-                    return;
-                }
+            renderSortedTable(sortedInfluencers);
+        }
 
-                let sortedInfluencers = [...influencers];
+        function renderSortedTable(sortedInfluencers) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
 
-                switch (sortValue) {
-                    case 'grade-high':
-                        sortedInfluencers.sort((a, b) => {
-                            const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
-                            return gradeOrder[getGrade(calculateTotal(b))] - gradeOrder[getGrade(calculateTotal(a))];
-                        });
-                        break;
-                    case 'grade-low':
-                        sortedInfluencers.sort((a, b) => {
-                            const gradeOrder = { 'S': 4, 'A': 3, 'B': 2, 'C': 1, 'D': 0 };
-                            return gradeOrder[getGrade(calculateTotal(a))] - gradeOrder[getGrade(calculateTotal(b))];
-                        });
-                        break;
-                    case 'total-high':
-                        sortedInfluencers.sort((a, b) => calculateTotal(b) - calculateTotal(a));
-                        break;
-                    case 'total-low':
-                        sortedInfluencers.sort((a, b) => calculateTotal(a) - calculateTotal(b));
-                        break;
-                    case 'platform':
-                        sortedInfluencers.sort((a, b) => (a.platform || 'Instagram').localeCompare(b.platform || 'Instagram'));
-                        break;
-                    case 'brand':
-                        sortedInfluencers.sort((a, b) => (a.brand || '미정').localeCompare(b.brand || '미정'));
-                        break;
-                    case 'assignee':
-                        sortedInfluencers.sort((a, b) => (a.assignee || '미정').localeCompare(b.assignee || '미정'));
-                        break;
-                    case 'status':
-                        sortedInfluencers.sort((a, b) => (a.status || '대기중').localeCompare(b.status || '대기중'));
-                        break;
-                }
-
-                renderSortedTable(sortedInfluencers);
-            }
-
-            function renderSortedTable(sortedInfluencers) {
-                const tableBody = document.getElementById('tableBody');
-                tableBody.innerHTML = '';
-
-                sortedInfluencers.forEach((influencer, index) => {
-                    const row = tableBody.insertRow();
-                    row.innerHTML = `
+            sortedInfluencers.forEach((influencer, index) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
                     <td>${index + 1}</td>
                     <td>
                         ${influencer.profileUrl ?
-                            `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
-                            `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
-                        }
+                        `<a href="${influencer.profileUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">${influencer.name}</a> | <small><a href="javascript:void(0)" onclick="editName('${influencer.id}')" style="color: #95a5a6; font-size: 10px;">편집</a></small>` :
+                        `<input type="text" value="${influencer.name || ''}" onchange="updateInfluencer('${influencer.id}', 'name', this.value)" onkeypress="handleNameEnter(event, '${influencer.id}')" style="width:100px;">`
+                    }
                     </td>
                     <td>
                         <select onchange="updatePlatformAndUrl('${influencer.id}', this.value)">
@@ -2252,22 +2794,22 @@
                     <td><input type="text" value="${influencer.budget || ''}" onchange="updateInfluencer('${influencer.id}', 'budget', this.value)" style="width:80px;"></td>
                     <td><button class="delete-btn" onclick="deleteInfluencer('${influencer.id}')">삭제</button></td>
                 `;
-                });
-            }
+            });
+        }
 
-            function showTab(tabName) {
-                const contents = document.querySelectorAll('.tab-content');
-                contents.forEach(content => content.classList.remove('active'));
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
 
-                const tabs = document.querySelectorAll('.tab');
-                tabs.forEach(tab => tab.classList.remove('active'));
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
 
-                document.getElementById(tabName).classList.add('active');
-                event.target.classList.add('active');
-            }
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
 
 
-        </script>
+    </script>
 </body>
 
 </html>
